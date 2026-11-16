@@ -1,0 +1,40 @@
+name: Formula Request or Update
+description: Request a new CLI formula or version bump for an existing tool.
+title: "feat(<formula>): "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request adding a new formula or updating an upstream package version.
+  - type: input
+    id: tool_name
+    attributes:
+      label: Tool Name and Upstream Repository
+      description: Package name and URL to official upstream repository or PyPI distribution.
+      placeholder: https://github.com/owner/repository
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Technical Purpose
+      description: What does this tool do and why should it be packaged in this tap?
+      placeholder: CLI utility for...
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Known Runtime Dependencies
+      description: List required compilers, Python modules, or shared libraries.
+      placeholder: python@3.12, click, etc.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Contributor Checklist
+      options:
+        - label: The upstream project has an open-source license.
+          required: true
+        - label: I verified the upstream package builds cleanly.
+          required: false

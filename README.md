@@ -1,105 +1,182 @@
 # Homebrew Tap for AtaCanYmc
 
-[![Actions Status](https://github.com/AtaCanYmc/homebrew-tap/workflows/GitHub%20Actions%20CI/badge.svg)](https://github.com/AtaCanYmc/homebrew-tap/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CI Status](https://github.com/AtaCanYmc/homebrew-tap/actions/workflows/tests.yml/badge.svg)](https://github.com/AtaCanYmc/homebrew-tap/actions/workflows/tests.yml)
+[![Pages Deployment](https://github.com/AtaCanYmc/homebrew-tap/actions/workflows/pages.yml/badge.svg)](https://github.com/AtaCanYmc/homebrew-tap/actions/workflows/pages.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Official Homebrew Tap providing custom formulae maintained by Ata Can Yaymacı.
+Official Homebrew Tap providing custom CLI formulae for macOS and Linux, maintained by Ata Can Yaymacı.
 
-Documentation & Showcase website: [https://atacanymc.github.io/homebrew-tap/](https://atacanymc.github.io/homebrew-tap/)
+Showcase and documentation site: [https://atacanymc.github.io/homebrew-tap/](https://atacanymc.github.io/homebrew-tap/)
 
 ## Table of Contents
 
+- [Architecture](#architecture)
 - [Available Formulae](#available-formulae)
-- [Installation and Usage](#installation-and-usage)
-  - [Direct Installation](#direct-installation)
-  - [Tapping the Repository](#tapping-the-repository)
-  - [Using Brewfile](#using-brewfile)
+- [Quick Start](#quick-start)
+  - [1. Tap the Repository](#1-tap-the-repository)
+  - [2. Direct Formula Installation](#2-direct-formula-installation)
+  - [3. Brewfile Integration](#3-brewfile-integration)
 - [Formula Details](#formula-details)
-  - [Lumina](#lumina)
+  - [lumina](#lumina)
+  - [robo-market-search](#robo-market-search)
 - [Maintenance and Local Testing](#maintenance-and-local-testing)
+- [Technical FAQ](#technical-faq)
 - [Contributing](#contributing)
+- [Security](#security)
 - [License](#license)
+
+## Architecture
+
+This repository distributes standalone CLI utilities packaged using Homebrew formula definitions. Python-based formulae isolate dependencies inside self-contained virtual environments, preventing version conflicts with the host system.
+
+```mermaid
+flowchart TD
+    User["Developer Terminal"] -->|"brew tap AtaCanYmc/tap"| TapRepo["AtaCanYmc/homebrew-tap"]
+    TapRepo --> FormulaDir["Formula/ Directory"]
+    
+    FormulaDir --> LuminaFormula["Formula/lumina.rb"]
+    FormulaDir --> RoboFormula["Formula/robo-market-search.rb"]
+    
+    LuminaFormula -->|"Download & Verify"| PyPI1["PyPI: lumina-tools + deps"]
+    RoboFormula -->|"Download & Verify"| PyPI2["PyPI: robo-market-search + deps"]
+    
+    PyPI1 --> Venv1["$(brew --prefix)/libexec (lumina venv)"]
+    PyPI2 --> Venv2["$(brew --prefix)/libexec (robo-search venv)"]
+    
+    Venv1 --> Bin1["$(brew --prefix)/bin/lumina"]
+    Venv2 --> Bin2["$(brew --prefix)/bin/robo-search"]
+```
 
 ## Available Formulae
 
-| Formula | Version | Description | Upstream Repository |
-| :--- | :--- | :--- | :--- |
-| [`lumina`](Formula/lumina.rb) | `1.0.0` | Lithophane and Spiral Betty 3D Art Generator CLI | [AtaCanYmc/lumina](https://github.com/AtaCanYmc/lumina) |
+| Formula | Version | Description | Target Binary | License | Source Repository |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| [`lumina`](Formula/lumina.rb) | `1.0.0` | Lithophane and Spiral Betty 3D Art Generator CLI | `lumina` | MIT | [AtaCanYmc/lumina](https://github.com/AtaCanYmc/lumina) |
+| [`robo-market-search`](Formula/robo-market-search.rb) | `1.10.0` | Electronics market search and cart optimization CLI | `robo-search` | Apache-2.0 | [AtaCanYmc/robo-market-search](https://github.com/AtaCanYmc/robo-market-search) |
 
-## Installation and Usage
+## Quick Start
 
-### Direct Installation
+### 1. Tap the Repository
 
-Install any formula directly using the tap shorthand:
-
-```bash
-brew install AtaCanYmc/tap/lumina
-```
-
-### Tapping the Repository
-
-Add the tap to your local Homebrew installation for short command invocation:
+Add the tap to your local Homebrew installation:
 
 ```bash
-# 1. Tap the repository
+# Tap the repository
 brew tap AtaCanYmc/tap
 
-# 2. Install the formula
+# Install any formula
 brew install lumina
+brew install robo-market-search
 
-# 3. Update all tapped formulae
+# Update formulae definitions
 brew update
 ```
 
-### Using Brewfile
+### 2. Direct Formula Installation
 
-To declare formulae in your `Brewfile` (for `brew bundle`):
+Install any formula directly without explicitly tapping beforehand:
+
+```bash
+# Install lumina directly
+brew install AtaCanYmc/tap/lumina
+
+# Install robo-market-search directly
+brew install AtaCanYmc/tap/robo-market-search
+```
+
+### 3. Brewfile Integration
+
+To manage formulae declaratively via `brew bundle`, add the following entries to your `Brewfile`:
 
 ```ruby
 tap "AtaCanYmc/tap"
 brew "lumina"
+brew "robo-market-search"
+```
+
+Apply the configuration:
+
+```bash
+brew bundle
 ```
 
 ## Formula Details
 
-### Lumina
+### lumina
 
 Lumina converts 2D raster images into 3D-printable lithophane STL meshes and Spiral Betty raster patterns.
 
 ```bash
-# Verify installation
+# Verify installation and inspect available commands
 lumina --help
 
-# Generate a circular lithophane STL
+# Generate a circular lithophane STL mesh
 lumina flat photo.jpg --shape circle --width 120
 
-# Generate a Spiral Betty PNG
+# Generate a Spiral Betty PNG pattern
 lumina spiral portrait.jpg --radius 100 --lines 40
 ```
 
-## Maintenance and Local Testing
+- **Dependencies**: `python@3.12`, `numpy`, `opencv`
+- **Upstream Repository**: [https://github.com/AtaCanYmc/lumina](https://github.com/AtaCanYmc/lumina)
 
-When modifying or updating formulae in this tap, run Homebrew's built-in linting and verification test suite:
+---
+
+### robo-market-search
+
+Robo Market Search queries Turkish electronic component retailers (Robotistan, SAMM Market, Direnc.net) and computes optimized shopping carts.
 
 ```bash
-# Audit formula syntax and style constraints
-brew audit --strict AtaCanYmc/tap/lumina
+# Inspect available options
+robo-search --help
 
-# Run formula integration test block
-brew test AtaCanYmc/tap/lumina
+# Search for components across supported stores
+robo-search "esp32-wroom"
 
-# Test build from source
-brew install --build-from-source AtaCanYmc/tap/lumina
+# Search with cart optimization filters
+robo-search "raspberry pi 5"
 ```
+
+- **Dependencies**: `python@3.12`
+- **Upstream Repository**: [https://github.com/AtaCanYmc/robo-market-search](https://github.com/AtaCanYmc/robo-market-search)
+
+## Maintenance and Local Testing
+
+When contributing or verifying formulae locally, run Homebrew's verification suite:
+
+```bash
+# 1. Audit formula syntax and Homebrew style guidelines
+brew audit --strict AtaCanYmc/tap/lumina
+brew audit --strict AtaCanYmc/tap/robo-market-search
+
+# 2. Run formula integration tests
+brew test AtaCanYmc/tap/lumina
+brew test AtaCanYmc/tap/robo-market-search
+
+# 3. Test clean build from source
+brew install --build-from-source AtaCanYmc/tap/lumina
+brew install --build-from-source AtaCanYmc/tap/robo-market-search
+```
+
+## Technical FAQ
+
+### How do Python formulae manage dependencies?
+Formulae in this tap utilize Homebrew's `Language::Python::Virtualenv` mechanism. Each tool is built into an isolated virtual environment located in `$(brew --prefix)/Cellar/<formula>/<version>/libexec`. Binaries are symlinked into `$(brew --prefix)/bin`, ensuring system Python and global packages remain untouched.
+
+### Can formulae be installed on Linux?
+Yes. The formulae run on Linux installations powered by Homebrew on Linux (Linuxbrew). Continuous integration verifies builds against both macOS runners and official Ubuntu-based Homebrew containers.
+
+### How do I update formulae to the latest release?
+Run `brew update` to fetch the latest formula definitions from this repository, followed by `brew upgrade <formula>` or `brew upgrade` to upgrade all outdated packages.
 
 ## Contributing
 
-1. Fork this repository.
-2. Create a feature branch (`git checkout -b update-formula-version`).
-3. Update the formula in `Formula/` (source URL, SHA-256 hash, and resources).
-4. Verify with `brew audit --strict` and `brew test`.
-5. Submit a Pull Request following Conventional Commits format (`feat(lumina): bump version to x.y.z`).
+See [CONTRIBUTING.md](CONTRIBUTING.md) for branch naming conventions, pull request standards, and formula authoring guidelines.
+
+## Security
+
+See [SECURITY.md](SECURITY.md) for our vulnerability disclosure policy and response timeline.
 
 ## License
 
-This repository and its formulae are licensed under the MIT License. See [LICENSE](LICENSE) for details.
+This tap repository and its formula definitions are licensed under the MIT License. See [LICENSE](LICENSE) for details. Bundled upstream tools maintain their respective open-source licenses as noted in the [Available Formulae](#available-formulae) table.

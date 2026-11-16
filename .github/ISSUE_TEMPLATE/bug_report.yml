@@ -1,0 +1,61 @@
+name: Bug Report
+description: Report an installation, build, or runtime defect in a tap formula.
+title: "fix(<formula>): "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue. Please ensure the issue is reproducible with the latest formula definition.
+  - type: dropdown
+    id: formula
+    attributes:
+      label: Affected Formula
+      description: Select the formula experiencing issues.
+      options:
+        - lumina
+        - robo-market-search
+        - other / tap infrastructure
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: System Environment
+      description: Operating system and Homebrew version (e.g. macOS 15.1 Sequoia on Apple Silicon, Homebrew 4.4.x).
+      placeholder: macOS 15.x / Ubuntu 24.04, Homebrew 4.x
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Exact commands executed leading to the error.
+      placeholder: |
+        1. brew tap AtaCanYmc/tap
+        2. brew install <formula>
+        3. <error output>
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should have happened.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Command Output or Build Logs
+      description: Paste terminal output or error logs from `brew install --verbose` or `brew test`.
+      render: shell
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Verification Checklist
+      options:
+        - label: I ran `brew update` before testing.
+          required: true
+        - label: I searched existing open and closed issues for duplicates.
+          required: true

@@ -1,0 +1,36 @@
+# Auto detect text files and perform LF normalization on checkout
+* text=auto eol=lf
+
+# Homebrew Ruby formulae
+*.rb text eol=lf
+
+# Shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
+
+# Documentation and structured data
+*.md text diff=markdown
+*.json text
+*.yml text
+*.yaml text
+
+# Web assets
+*.html text
+*.css text
+*.js text
+*.svg text
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.pdf binary
+
+# Release archive exclusions
+.github export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+.editorconfig export-ignore
+.markdownlint.json export-ignore
