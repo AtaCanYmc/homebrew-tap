@@ -5,6 +5,8 @@
 
 Official Homebrew Tap providing custom formulae maintained by Ata Can Yaymacı.
 
+Documentation & Showcase website: [https://atacanymc.github.io/homebrew-tap/](https://atacanymc.github.io/homebrew-tap/)
+
 ## Table of Contents
 
 - [Available Formulae](#available-formulae)
