@@ -54,6 +54,7 @@ flowchart TD
 | [`forex-pytory`](Formula/forex-pytory.rb) | `0.1.2` | Economic calendar scraper CLI and MCP server across financial markets | `forex-scraper`, `forex-mcp` | Apache-2.0 | [AtaCanYmc/forex-pytory](https://github.com/AtaCanYmc/forex-pytory) |
 | [`lumina`](Formula/lumina.rb) | `1.0.0` | Lithophane and Spiral Betty 3D Art Generator CLI | `lumina` | MIT | [AtaCanYmc/lumina](https://github.com/AtaCanYmc/lumina) |
 | [`robo-market-search`](Formula/robo-market-search.rb) | `1.10.0` | Electronics market search and cart optimization CLI | `robo-search` | Apache-2.0 | [AtaCanYmc/robo-market-search](https://github.com/AtaCanYmc/robo-market-search) |
+| [`yargitay-karar-scraper`](Formula/yargitay-karar-scraper.rb) | `0.1.1` | Yargıtay Karar Arama CLI ve FastMCP Sunucusu | `yargitay-karar-cli`, `yargitay-karar-mcp` | Apache-2.0 | [AtaCanYmc/yargitay-karar-scraper](https://github.com/AtaCanYmc/yargitay-karar-scraper) |
 
 ## Quick Start
 
@@ -161,6 +162,29 @@ robo-search "raspberry pi 5"
 
 - **Dependencies**: `python@3.12`
 - **Upstream Repository**: [https://github.com/AtaCanYmc/robo-market-search](https://github.com/AtaCanYmc/robo-market-search)
+
+---
+
+### yargitay-karar-scraper
+
+Yargıtay Karar Arama CLI and FastMCP server for querying case precedents and pulling clean full text.
+
+```bash
+# Search decisions by keyword
+yargitay-karar-cli search --kelime "hırsızlık"
+
+# Detailed search with chamber and year filters
+yargitay-karar-cli detailed-search --kelime "dolandırıcılık" --daire "11. Ceza Dairesi" --karar-yil "2021"
+
+# Pull full text by decision ID
+yargitay-karar-cli detail --id "120109100"
+
+# Run the FastMCP server for LLM integration
+yargitay-karar-mcp
+```
+
+- **Dependencies**: `python@3.12`, `cryptography`
+- **Upstream Repository**: [https://github.com/AtaCanYmc/yargitay-karar-scraper](https://github.com/AtaCanYmc/yargitay-karar-scraper)
 
 ## Maintenance and Local Testing
 
