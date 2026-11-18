@@ -13,6 +13,7 @@ This directory contains Homebrew formula specifications (`.rb`) maintained in th
 | [`resmi-gazete-cli.rb`](resmi-gazete-cli.rb) | `resmi-gazete-cli` | `0.1.2` | Apache-2.0 | `resmi-gazete-cli`, `resmi-gazete-mcp` |
 | [`robo-market-search.rb`](robo-market-search.rb) | `robo-market-search` | `1.10.0` | Apache-2.0 | `robo-search` |
 | [`rxresume.rb`](rxresume.rb) | `rxresume` | `0.6.0` | MIT | `rxresume`, `rxresume-mcp` |
+| [`stock-fetcher.rb`](stock-fetcher.rb) | `stock-fetcher` | `0.2.0` | Apache-2.0 | `stock-fetcher` |
 | [`yargitay-karar-scraper.rb`](yargitay-karar-scraper.rb) | `yargitay-karar-scraper` | `0.1.1` | Apache-2.0 | `yargitay-karar-cli`, `yargitay-karar-mcp` |
 
 ## Formula Standards
