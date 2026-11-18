@@ -41,9 +41,10 @@ flowchart TD
     FormulaDir --> F2["Formula/lumina.rb"]
     FormulaDir --> F3["Formula/resmi-gazete-cli.rb"]
     FormulaDir --> F4["Formula/robo-market-search.rb"]
-    FormulaDir --> F5["Formula/yargitay-karar-scraper.rb"]
+    FormulaDir --> F5["Formula/rxresume.rb"]
+    FormulaDir --> F6["Formula/yargitay-karar-scraper.rb"]
 
-    F1 & F2 & F3 & F4 & F5 -->|"Download & Verify SHA-256"| Upstream["PyPI & GitHub Release Tarballs"]
+    F1 & F2 & F3 & F4 & F5 & F6 -->|"Download & Verify SHA-256"| Upstream["PyPI & GitHub Release Tarballs"]
     Upstream --> Venv["$(brew --prefix)/libexec/<formula> (Isolated Virtualenv)"]
     Venv --> Bin["$(brew --prefix)/bin/<binary> (Executable Symlink)"]
 ```
@@ -56,6 +57,7 @@ flowchart TD
 | [`lumina`](Formula/lumina.rb) | `1.0.0` | Lithophane and Spiral Betty 3D Art Generator CLI | `lumina` | MIT | [AtaCanYmc/lumina](https://github.com/AtaCanYmc/lumina) |
 | [`resmi-gazete-cli`](Formula/resmi-gazete-cli.rb) | `0.1.2` | T.C. Resmi Gazete Karar, Kanun ve İlan Scraper, CLI ve MCP Sunucusu | `resmi-gazete-cli`, `resmi-gazete-mcp` | Apache-2.0 | [AtaCanYmc/resmi-gazete-cli](https://github.com/AtaCanYmc/resmi-gazete-cli) |
 | [`robo-market-search`](Formula/robo-market-search.rb) | `1.10.0` | Electronics market search and cart optimization CLI | `robo-search` | Apache-2.0 | [AtaCanYmc/robo-market-search](https://github.com/AtaCanYmc/robo-market-search) |
+| [`rxresume`](Formula/rxresume.rb) | `0.6.0` | Reactive Resume API client, CLI, and FastMCP server | `rxresume`, `rxresume-mcp` | MIT | [AtaCanYmc/reactive-resume-api-client-py](https://github.com/AtaCanYmc/reactive-resume-api-client-py) |
 | [`yargitay-karar-scraper`](Formula/yargitay-karar-scraper.rb) | `0.1.1` | Yargıtay Karar Arama CLI ve FastMCP Sunucusu | `yargitay-karar-cli`, `yargitay-karar-mcp` | Apache-2.0 | [AtaCanYmc/yargitay-karar-scraper](https://github.com/AtaCanYmc/yargitay-karar-scraper) |
 
 ## Quick Start
@@ -198,6 +200,34 @@ robo-search "raspberry pi 5"
 
 - **Dependencies**: `python@3.12`
 - **Upstream Repository**: [https://github.com/AtaCanYmc/robo-market-search](https://github.com/AtaCanYmc/robo-market-search)
+
+---
+
+### rxresume
+
+Reactive Resume CLI, API client, and FastMCP server for managing resumes, cover letters, job applications, and ATS matching.
+
+```bash
+# Verify installation and inspect available commands
+rxresume --help
+rxresume-mcp --help
+
+# Check Reactive Resume server health and version
+rxresume health
+
+# List existing resumes
+rxresume resumes list
+
+# Export a resume to PDF, DOCX, Markdown or JSON
+rxresume resumes export <resume-id> --format pdf --output cv.pdf
+
+# Run the FastMCP server for LLM integration (stdio or SSE)
+rxresume mcp --transport stdio
+rxresume mcp --transport sse --port 8000
+```
+
+- **Dependencies**: `python@3.14`, `pydantic`, `certifi`
+- **Upstream Repository**: [https://github.com/AtaCanYmc/reactive-resume-api-client-py](https://github.com/AtaCanYmc/reactive-resume-api-client-py)
 
 ---
 
