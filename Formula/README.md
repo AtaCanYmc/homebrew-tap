@@ -10,6 +10,7 @@ This directory contains Homebrew formula specifications (`.rb`) maintained in th
 | :--- | :--- | :--- | :--- | :--- |
 | [`forex-pytory.rb`](forex-pytory.rb) | `forex-pytory` | `0.1.2` | Apache-2.0 | `forex-scraper`, `forex-mcp` |
 | [`lumina.rb`](lumina.rb) | `lumina` | `1.0.0` | MIT | `lumina` |
+| [`resmi-gazete-cli.rb`](resmi-gazete-cli.rb) | `resmi-gazete-cli` | `0.1.1` | Apache-2.0 | `resmi-gazete-cli`, `resmi-gazete-mcp` |
 | [`robo-market-search.rb`](robo-market-search.rb) | `robo-market-search` | `1.10.0` | Apache-2.0 | `robo-search` |
 | [`yargitay-karar-scraper.rb`](yargitay-karar-scraper.rb) | `yargitay-karar-scraper` | `0.1.1` | Apache-2.0 | `yargitay-karar-cli`, `yargitay-karar-mcp` |
 
