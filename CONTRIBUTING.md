@@ -46,6 +46,7 @@ Homebrew formulae in this tap follow strict quality guidelines:
    - Source archives must point to stable release tarballs from PyPI or GitHub release tags.
    - Never use direct branch references or unversioned archive URLs.
    - Always verify the SHA-256 checksum:
+
      ```bash
      curl -sL <tarball-url> | shasum -a 256
      ```

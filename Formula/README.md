@@ -18,7 +18,7 @@ This directory contains Homebrew formula specifications (`.rb`) maintained in th
 
 Each Ruby formula in this directory adheres to the following constraints:
 
-1. **Class Naming**: CamelCase class name matching the filename (e.g. `Lumina` for `lumina.rb`, `RoboMarketSearch` for `robo-market-search.rb`).
+1. **Class Naming**: CamelCase class name matching the filename. For example, `Lumina` for `lumina.rb` and `RoboMarketSearch` for `robo-market-search.rb`.
 2. **Virtual Environment Isolation**: Uses `Language::Python::Virtualenv` to encapsulate Python runtime dependencies without polluting the host environment.
 3. **Explicit Resources**: Every transitive package is declared with an immutable PyPI source URL and SHA-256 integrity hash.
 4. **Offline Test Suite**: The `test` block validates CLI binary presence and help output without requiring network access.

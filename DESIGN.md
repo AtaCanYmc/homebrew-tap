@@ -1,16 +1,19 @@
 # Design Direction: AtaCanYmc Homebrew Tap Website
 
 ## 1. Product Identity & Goals
+
 - **Product**: Homebrew Tap website for `AtaCanYmc/homebrew-tap`
 - **Target Audience**: Developers, makers, and terminal users on macOS & Linux installing custom CLI tools (e.g. `lumina`)
 - **Tone**: Technical, minimalist, precise, utilitarian, and fast
 
 ## 2. Antislop Dials
+
 - **ENERGY**: 2 (Balanced - technical precision without marketing hype)
 - **RHYTHM**: 1 (Structured, predictable terminal & documentation layout)
 - **MOTION**: 1 (Utilitarian transitions only, reduced-motion respected, no gratuitous bounce/floating)
 
 ## 3. Color Palette & Hierarchy (R-29, R-31)
+
 - **Dark Theme** (default preference for CLI tools):
   - Canvas: `#0f1117` (Deep neutral slate, prevents harsh pure black while avoiding generic blue-purple glow)
   - Surface / Panels: `#161922` (Distinct elevation for code blocks and formula cards)
@@ -27,10 +30,12 @@
   - Accent: `#b45309` (Readable amber on light background)
 
 ## 4. Typography (R-06, R-31)
+
 - **Body & Headings**: System sans stack (`-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`) for native speed and familiarity.
 - **Code & Commands**: System monospace stack (`ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace`) for terminal alignment and visual clarity.
 
 ## 5. Purpose-Gate Justifications (R-31)
+
 - **Why this color scheme?** Amber/gold accent reflects the Homebrew tap heritage; slate dark/light backgrounds ensure code readability.
 - **Why this layout?** Single-page documentation flow: Quick Tap installation at top, searchable Formula cards in the middle, Brewfile & maintenance reference at bottom. Matches developer workflow.
 - **Why interactive code boxes?** Terminal users expect instant copy-to-clipboard with immediate feedback.

@@ -116,6 +116,76 @@
         </div>
 
         <div class="formula-grid" id="formula-list">
+          <!-- Forex Pytory Formula Card -->
+          <article class="formula-card" data-name="forex-pytory" data-keywords="forex pytory calendar economic mcp fin finance market crypto news scraper python cli">
+            <div class="card-header">
+              <div class="card-title-group">
+                <h3 class="formula-name">forex-pytory</h3>
+                <span class="version-badge">v0.1.2</span>
+                <span class="license-badge">Apache-2.0</span>
+              </div>
+              <a href="https://github.com/AtaCanYmc/forex-pytory" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View forex-pytory on GitHub">
+                Source
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+
+            <p class="card-desc">
+              Economic calendar scraper CLI and MCP server across financial markets. Extracts and normalizes macroeconomic calendar events from ForexFactory, CryptoCraft, EnergyExch, and MetalsMine.
+            </p>
+
+            <div class="install-block">
+              <span class="block-label">Single-command install:</span>
+              <div class="code-line">
+                <code id="cmd-direct-forex">brew install AtaCanYmc/tap/forex-pytory</code>
+                <button class="copy-btn" type="button" data-copy-target="cmd-direct-forex" aria-label="Copy direct install command for forex-pytory">
+                  <span class="copy-text">Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="dependencies-group">
+              <span class="dep-title">Dependencies:</span>
+              <ul class="dep-list">
+                <li class="dep-item">python@3.12</li>
+                <li class="dep-item">cryptography</li>
+                <li class="dep-item">numpy</li>
+              </ul>
+            </div>
+
+            <div class="examples-group">
+              <span class="examples-title">CLI Examples:</span>
+              <div class="example-item">
+                <span class="example-comment"># Render calendar table in terminal</span>
+                <div class="code-line">
+                  <code id="cmd-ex-forex-table">forex-scraper --source forex --format table</code>
+                  <button class="copy-btn" type="button" data-copy-target="cmd-ex-forex-table" aria-label="Copy forex table example command">
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+              </div>
+              <div class="example-item">
+                <span class="example-comment"># Start FastMCP server</span>
+                <div class="code-line">
+                  <code id="cmd-ex-forex-mcp">forex-mcp</code>
+                  <button class="copy-btn" type="button" data-copy-target="cmd-ex-forex-mcp" aria-label="Copy forex MCP example command">
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <a href="https://github.com/AtaCanYmc/homebrew-tap/blob/main/Formula/forex-pytory.rb" class="view-formula-link" target="_blank" rel="noopener noreferrer">
+                View Formula/forex-pytory.rb on GitHub &rarr;
+              </a>
+            </div>
+          </article>
+
           <!-- Lumina Formula Card -->
           <article class="formula-card" data-name="lumina" data-keywords="lumina 3d lithophane spiral betty stl art python generator image raster">
             <div class="card-header">
@@ -182,6 +252,75 @@
             <div class="card-footer">
               <a href="https://github.com/AtaCanYmc/homebrew-tap/blob/main/Formula/lumina.rb" class="view-formula-link" target="_blank" rel="noopener noreferrer">
                 View Formula/lumina.rb on GitHub &rarr;
+              </a>
+            </div>
+          </article>
+
+          <!-- Resmi Gazete CLI Formula Card -->
+          <article class="formula-card" data-name="resmi-gazete-cli" data-keywords="resmi gazete karar kanun teblig ilan mevzuat fastmcp scraper python cli">
+            <div class="card-header">
+              <div class="card-title-group">
+                <h3 class="formula-name">resmi-gazete-cli</h3>
+                <span class="version-badge">v0.1.2</span>
+                <span class="license-badge">Apache-2.0</span>
+              </div>
+              <a href="https://github.com/AtaCanYmc/resmi-gazete-cli" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View resmi-gazete-cli on GitHub">
+                Source
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+
+            <p class="card-desc">
+              T.C. Resmi Gazete Karar, Kanun ve İlan Scraper, CLI ve FastMCP Sunucusu. Resmi Gazete içeriklerini yapısal formatta çeker ve yapay zeka ajanlarına aktarır.
+            </p>
+
+            <div class="install-block">
+              <span class="block-label">Single-command install:</span>
+              <div class="code-line">
+                <code id="cmd-direct-resmi">brew install AtaCanYmc/tap/resmi-gazete-cli</code>
+                <button class="copy-btn" type="button" data-copy-target="cmd-direct-resmi" aria-label="Copy direct install command for resmi-gazete-cli">
+                  <span class="copy-text">Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="dependencies-group">
+              <span class="dep-title">Dependencies:</span>
+              <ul class="dep-list">
+                <li class="dep-item">python@3.12</li>
+                <li class="dep-item">cryptography</li>
+              </ul>
+            </div>
+
+            <div class="examples-group">
+              <span class="examples-title">CLI Examples:</span>
+              <div class="example-item">
+                <span class="example-comment"># Fetch today's official gazette issue</span>
+                <div class="code-line">
+                  <code id="cmd-ex-resmi-today">resmi-gazete-cli today</code>
+                  <button class="copy-btn" type="button" data-copy-target="cmd-ex-resmi-today" aria-label="Copy today example command">
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+              </div>
+              <div class="example-item">
+                <span class="example-comment"># Start FastMCP server</span>
+                <div class="code-line">
+                  <code id="cmd-ex-resmi-mcp">resmi-gazete-mcp</code>
+                  <button class="copy-btn" type="button" data-copy-target="cmd-ex-resmi-mcp" aria-label="Copy resmi gazete MCP example command">
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <a href="https://github.com/AtaCanYmc/homebrew-tap/blob/main/Formula/resmi-gazete-cli.rb" class="view-formula-link" target="_blank" rel="noopener noreferrer">
+                View Formula/resmi-gazete-cli.rb on GitHub &rarr;
               </a>
             </div>
           </article>
@@ -253,6 +392,75 @@
               </a>
             </div>
           </article>
+
+          <!-- Yargitay Karar Scraper Formula Card -->
+          <article class="formula-card" data-name="yargitay-karar-scraper" data-keywords="yargitay karar scraper hukuk ictihat daire fastmcp python cli">
+            <div class="card-header">
+              <div class="card-title-group">
+                <h3 class="formula-name">yargitay-karar-scraper</h3>
+                <span class="version-badge">v0.1.1</span>
+                <span class="license-badge">Apache-2.0</span>
+              </div>
+              <a href="https://github.com/AtaCanYmc/yargitay-karar-scraper" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="View yargitay-karar-scraper on GitHub">
+                Source
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+
+            <p class="card-desc">
+              Yargıtay Karar Arama CLI ve FastMCP Sunucusu. Yargıtay emsal kararlarını anahtar kelime, daire ve yıl filtreleriyle arayarak tam metinleri çeker.
+            </p>
+
+            <div class="install-block">
+              <span class="block-label">Single-command install:</span>
+              <div class="code-line">
+                <code id="cmd-direct-yargitay">brew install AtaCanYmc/tap/yargitay-karar-scraper</code>
+                <button class="copy-btn" type="button" data-copy-target="cmd-direct-yargitay" aria-label="Copy direct install command for yargitay-karar-scraper">
+                  <span class="copy-text">Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="dependencies-group">
+              <span class="dep-title">Dependencies:</span>
+              <ul class="dep-list">
+                <li class="dep-item">python@3.12</li>
+                <li class="dep-item">cryptography</li>
+              </ul>
+            </div>
+
+            <div class="examples-group">
+              <span class="examples-title">CLI Examples:</span>
+              <div class="example-item">
+                <span class="example-comment"># Search precedent decisions by keyword</span>
+                <div class="code-line">
+                  <code id="cmd-ex-yargitay-search">yargitay-karar-cli search --kelime "hırsızlık"</code>
+                  <button class="copy-btn" type="button" data-copy-target="cmd-ex-yargitay-search" aria-label="Copy search example command">
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+              </div>
+              <div class="example-item">
+                <span class="example-comment"># Start FastMCP server</span>
+                <div class="code-line">
+                  <code id="cmd-ex-yargitay-mcp">yargitay-karar-mcp</code>
+                  <button class="copy-btn" type="button" data-copy-target="cmd-ex-yargitay-mcp" aria-label="Copy yargitay MCP example command">
+                    <span class="copy-text">Copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <a href="https://github.com/AtaCanYmc/homebrew-tap/blob/main/Formula/yargitay-karar-scraper.rb" class="view-formula-link" target="_blank" rel="noopener noreferrer">
+                View Formula/yargitay-karar-scraper.rb on GitHub &rarr;
+              </a>
+            </div>
+          </article>
         </div>
 
         <!-- Empty State (R-27) -->
@@ -283,8 +491,11 @@
             </button>
           </div>
           <pre class="pre-block"><code id="brewfile-code">tap "AtaCanYmc/tap"
+brew "forex-pytory"
 brew "lumina"
-brew "robo-market-search"</code></pre>
+brew "resmi-gazete-cli"
+brew "robo-market-search"
+brew "yargitay-karar-scraper"</code></pre>
         </div>
 
         <div class="run-command-box">

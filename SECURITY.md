@@ -6,8 +6,11 @@ Security updates and patches are applied to the `main` branch. Older commits or 
 
 | Component | Supported Version | Notes |
 | :--- | :--- | :--- |
+| `Formula/forex-pytory.rb` | `>= 0.1.2` | Upstream package releases on PyPI |
 | `Formula/lumina.rb` | `>= 1.0.0` | Upstream package releases on PyPI |
+| `Formula/resmi-gazete-cli.rb` | `>= 0.1.2` | Upstream package releases on PyPI |
 | `Formula/robo-market-search.rb` | `>= 1.10.0` | Upstream package releases on PyPI |
+| `Formula/yargitay-karar-scraper.rb` | `>= 0.1.1` | Upstream package releases on PyPI |
 | Tap Infrastructure & CI | `main` | Continuous deployment via GitHub Actions |
 
 ## Reporting a Vulnerability
