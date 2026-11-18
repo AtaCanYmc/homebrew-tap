@@ -51,6 +51,7 @@ flowchart TD
 
 | Formula | Version | Description | Target Binary | License | Source Repository |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| [`forex-pytory`](Formula/forex-pytory.rb) | `0.1.2` | Economic calendar scraper CLI and MCP server across financial markets | `forex-scraper`, `forex-mcp` | Apache-2.0 | [AtaCanYmc/forex-pytory](https://github.com/AtaCanYmc/forex-pytory) |
 | [`lumina`](Formula/lumina.rb) | `1.0.0` | Lithophane and Spiral Betty 3D Art Generator CLI | `lumina` | MIT | [AtaCanYmc/lumina](https://github.com/AtaCanYmc/lumina) |
 | [`robo-market-search`](Formula/robo-market-search.rb) | `1.10.0` | Electronics market search and cart optimization CLI | `robo-search` | Apache-2.0 | [AtaCanYmc/robo-market-search](https://github.com/AtaCanYmc/robo-market-search) |
 
@@ -101,6 +102,27 @@ brew bundle
 ```
 
 ## Formula Details
+
+### forex-pytory
+
+`forex-pytory` extracts and normalizes macroeconomic calendar events from ForexFactory, CryptoCraft, EnergyExch, and MetalsMine via CLI and MCP server.
+
+```bash
+# Verify installation and inspect available commands
+forex-scraper --help
+forex-mcp --help
+
+# Render color-coded economic calendar table in terminal
+forex-scraper --source forex --format table
+
+# Query specific market and historical date
+forex-scraper --source crypto --date 2026-05-20 --format table
+```
+
+- **Dependencies**: `python@3.12`, `cryptography`, `numpy`
+- **Upstream Repository**: [https://github.com/AtaCanYmc/forex-pytory](https://github.com/AtaCanYmc/forex-pytory)
+
+---
 
 ### lumina
 
