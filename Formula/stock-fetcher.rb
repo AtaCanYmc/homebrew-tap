@@ -3,10 +3,15 @@ class StockFetcher < Formula
 
   desc "Unified copyright-free stock image search and download CLI"
   homepage "https://github.com/AtaCanYmc/stock-fetcher"
-  url "https://github.com/AtaCanYmc/stock-fetcher/archive/refs/tags/v0.2.0.tar.gz" # x-release-please-version
-  sha256 "c7d2cf54b7207b7bbac23bd695925a4a8f49db9a5d9b9c90e2a3f8416ebe0f3a"
+  url "https://github.com/AtaCanYmc/stock-fetcher/archive/refs/tags/stock-fetcher-v0.3.0.tar.gz" # x-release-please-version
+  sha256 "9d4d12ce1390527143370afcaea09366652d2fbfcba6a49200961506fbe3c6c2"
   license "Apache-2.0"
   head "https://github.com/AtaCanYmc/stock-fetcher.git", branch: "main"
+
+  livecheck do
+    url :stable
+    regex(/^stock-fetcher-v(\d+(?:\.\d+)+)$/i)
+  end
 
   depends_on "python@3.12"
 
