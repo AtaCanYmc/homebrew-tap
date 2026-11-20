@@ -1,6 +1,4 @@
 class StockFetcher < Formula
-  include Language::Python::Virtualenv
-
   desc "Unified copyright-free stock image search and download CLI"
   homepage "https://github.com/AtaCanYmc/stock-fetcher"
   url "https://github.com/AtaCanYmc/stock-fetcher/archive/refs/tags/stock-fetcher-v0.3.0.tar.gz" # x-release-please-version
@@ -16,7 +14,8 @@ class StockFetcher < Formula
   depends_on "python@3.12"
 
   def install
-    virtualenv_create(libexec, "python3.12")
+    system "python3.12", "-m", "venv", libexec
+    system libexec/"bin/pip", "install", "-v", "--upgrade", "pip"
     system libexec/"bin/pip", "install", "-v", ".[cli]"
     bin.install_symlink libexec/"bin/stock-fetcher"
   end
