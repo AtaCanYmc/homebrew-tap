@@ -56,7 +56,8 @@ flowchart TD
 | Formula | Version | Description | Target Binary | License | Source Repository |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | [`forex-pytory`](Formula/forex-pytory.rb) | `0.1.2` | Economic calendar scraper CLI and MCP server across financial markets | `forex-scraper`, `forex-mcp` | Apache-2.0 | [AtaCanYmc/forex-pytory](https://github.com/AtaCanYmc/forex-pytory) |
-| [`izmir-cli`](Formula/izmir-cli.rb) | `2.0.0` | İzmir Büyükşehir Belediyesi Açık Veri Portalı CLI ve MCP Aracı | `izmir-cli`, `izmir`, `izmir-mcp` | Apache-2.0 | [AtaCanYmc/izmir-open-data-js](https://github.com/AtaCanYmc/izmir-open-data-js) |
+| [`izmir-cli`](Formula/izmir-cli.rb) | `2.0.0` | İzmir Büyükşehir Belediyesi Açık Veri Portalı CLI ve MCP Aracı (Node.js) | `izmir-cli`, `izmir`, `izmir-mcp` | Apache-2.0 | [AtaCanYmc/izmir-open-data-js](https://github.com/AtaCanYmc/izmir-open-data-js) |
+| [`izmir-data`](Formula/izmir-data.rb) | `0.3.0` | İzmir Büyükşehir Belediyesi Açık Veri Portalı CLI ve MCP Aracı (Python) | `izmir-data`, `izmir-mcp` | Apache-2.0 | [AtaCanYmc/izmir-open-data-py](https://github.com/AtaCanYmc/izmir-open-data-py) |
 | [`lumina`](Formula/lumina.rb) | `1.0.0` | Lithophane and Spiral Betty 3D Art Generator CLI | `lumina` | MIT | [AtaCanYmc/lumina](https://github.com/AtaCanYmc/lumina) |
 | [`resmi-gazete-cli`](Formula/resmi-gazete-cli.rb) | `0.1.2` | T.C. Resmi Gazete Karar, Kanun ve İlan Scraper, CLI ve MCP Sunucusu | `resmi-gazete-cli`, `resmi-gazete-mcp` | Apache-2.0 | [AtaCanYmc/resmi-gazete-cli](https://github.com/AtaCanYmc/resmi-gazete-cli) |
 | [`robo-market-search`](Formula/robo-market-search.rb) | `1.10.0` | Electronics market search and cart optimization CLI | `robo-search` | Apache-2.0 | [AtaCanYmc/robo-market-search](https://github.com/AtaCanYmc/robo-market-search) |
