@@ -1,8 +1,8 @@
 class IzmirData < Formula
   desc "Izmir Buyuksehir Belediyesi Acik Veri Portali CLI ve MCP Sunucusu"
   homepage "https://github.com/AtaCanYmc/izmir-open-data-py"
-  url "https://github.com/AtaCanYmc/izmir-open-data-py/archive/refs/tags/v0.3.0.tar.gz" # x-release-please-version
-  sha256 "c2b98920e36b04f8ea1e29fd0ec7d8d1b08a09256809600c14c501c30aac9ffd"
+  url "https://github.com/AtaCanYmc/izmir-open-data-py/archive/refs/tags/v0.3.1.tar.gz" # x-release-please-version
+  sha256 "bc943157a48bc35d8366b2538e3892c642cb5d583e94e3e15ec4329ca3ec6c99"
   license "Apache-2.0"
   head "https://github.com/AtaCanYmc/izmir-open-data-py.git", branch: "main"
 
