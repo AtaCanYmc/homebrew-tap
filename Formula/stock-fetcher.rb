@@ -1,8 +1,8 @@
 class StockFetcher < Formula
   desc "Unified copyright-free stock image search and download CLI"
   homepage "https://github.com/AtaCanYmc/stock-fetcher"
-  url "https://github.com/AtaCanYmc/stock-fetcher/archive/refs/tags/stock-fetcher-v0.3.0.tar.gz" # x-release-please-version
-  sha256 "9d4d12ce1390527143370afcaea09366652d2fbfcba6a49200961506fbe3c6c2"
+  url "https://github.com/AtaCanYmc/stock-fetcher/archive/refs/tags/stock-fetcher-v0.4.0.tar.gz" # x-release-please-version
+  sha256 "19824972a9a17dc97e5a710040980ff9e6a29cea8c65caf511ccd3b3c6039ab3"
   license "Apache-2.0"
   head "https://github.com/AtaCanYmc/stock-fetcher.git", branch: "main"
 
