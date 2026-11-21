@@ -1,7 +1,7 @@
 class Rtfs < Formula
   desc "Multi-Source Movie & TV Script CLI, Python SDK, and FastMCP Server"
   homepage "https://github.com/AtaCanYmc/rtfs"
-  url "https://github.com/AtaCanYmc/rtfs/archive/refs/tags/v0.1.1.tar.gz"
+  url "https://github.com/AtaCanYmc/rtfs/archive/refs/tags/v0.1.1.tar.gz" # x-release-please-version
   sha256 "b3e1c846e0aa8b1313c5ec15fea5625fecbdbf285cacd851fb0696e84043c25c"
   license "AGPL-3.0-or-later"
   head "https://github.com/AtaCanYmc/rtfs.git", branch: "main"

@@ -44,11 +44,12 @@ flowchart TD
     FormulaDir --> F2["Formula/lumina.rb"]
     FormulaDir --> F3["Formula/resmi-gazete-cli.rb"]
     FormulaDir --> F4["Formula/robo-market-search.rb"]
-    FormulaDir --> F5["Formula/rxresume.rb"]
-    FormulaDir --> F6["Formula/stock-fetcher.rb"]
-    FormulaDir --> F7["Formula/yargitay-karar-scraper.rb"]
+    FormulaDir --> F5["Formula/rtfs.rb"]
+    FormulaDir --> F6["Formula/rxresume.rb"]
+    FormulaDir --> F7["Formula/stock-fetcher.rb"]
+    FormulaDir --> F8["Formula/yargitay-karar-scraper.rb"]
 
-    F1 & F2 & F3 & F4 & F5 & F6 & F7 -->|"Download & Verify SHA-256"| Upstream["PyPI & GitHub Release Tarballs"]
+    F1 & F2 & F3 & F4 & F5 & F6 & F7 & F8 -->|"Download & Verify SHA-256"| Upstream["PyPI & GitHub Release Tarballs"]
     Upstream --> Venv["$(brew --prefix)/libexec/<formula> (Isolated Virtualenv)"]
     Venv --> Bin["$(brew --prefix)/bin/<binary> (Executable Symlink)"]
 ```
@@ -120,6 +121,9 @@ brew "forex-pytory"
 brew "lumina"
 brew "resmi-gazete-cli"
 brew "robo-market-search"
+brew "rtfs"
+brew "rxresume"
+brew "stock-fetcher"
 brew "yargitay-karar-scraper"
 ```
 
