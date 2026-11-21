@@ -18,6 +18,7 @@ Showcase and documentation site: [https://atacanymc.github.io/homebrew-tap/](htt
   - [3. Brewfile Integration](#3-brewfile-integration)
 - [Formula Details](#formula-details)
   - [forex-pytory](#forex-pytory)
+  - [izko-gold-price-api](#izko-gold-price-api)
   - [lumina](#lumina)
   - [resmi-gazete-cli](#resmi-gazete-cli)
   - [robo-market-search](#robo-market-search)
@@ -41,6 +42,7 @@ flowchart TD
     TapRepo --> FormulaDir["Formula/ Directory"]
 
     FormulaDir --> F1["Formula/forex-pytory.rb"]
+    FormulaDir --> F9["Formula/izko-gold-price-api.rb"]
     FormulaDir --> F2["Formula/lumina.rb"]
     FormulaDir --> F3["Formula/resmi-gazete-cli.rb"]
     FormulaDir --> F4["Formula/robo-market-search.rb"]
@@ -49,7 +51,7 @@ flowchart TD
     FormulaDir --> F7["Formula/stock-fetcher.rb"]
     FormulaDir --> F8["Formula/yargitay-karar-scraper.rb"]
 
-    F1 & F2 & F3 & F4 & F5 & F6 & F7 & F8 -->|"Download & Verify SHA-256"| Upstream["PyPI & GitHub Release Tarballs"]
+    F1 & F2 & F3 & F4 & F5 & F6 & F7 & F8 & F9 -->|"Download & Verify SHA-256"| Upstream["PyPI & GitHub Release Tarballs"]
     Upstream --> Venv["$(brew --prefix)/libexec/<formula> (Isolated Virtualenv)"]
     Venv --> Bin["$(brew --prefix)/bin/<binary> (Executable Symlink)"]
 ```
@@ -59,6 +61,7 @@ flowchart TD
 | Formula | Version | Description | Target Binary | License | Source Repository |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | [`forex-pytory`](Formula/forex-pytory.rb) | `0.1.2` | Economic calendar scraper CLI and MCP server across financial markets | `forex-scraper`, `forex-mcp` | Apache-2.0 | [AtaCanYmc/forex-pytory](https://github.com/AtaCanYmc/forex-pytory) |
+| [`izko-gold-price-api`](Formula/izko-gold-price-api.rb) | `0.2.0` | Izmir Jewelers Chamber gold and currency rates CLI, REST API, and MCP server | `izko-gold-price-api`, `izko-gold-price-mcp` | MIT | [AtaCanYmc/izko-gold-price-api](https://github.com/AtaCanYmc/izko-gold-price-api) |
 | [`izmir-cli`](Formula/izmir-cli.rb) | `2.0.0` | İzmir Büyükşehir Belediyesi Açık Veri Portalı CLI ve MCP Aracı (Node.js) | `izmir-cli`, `izmir`, `izmir-mcp` | Apache-2.0 | [AtaCanYmc/izmir-open-data-js](https://github.com/AtaCanYmc/izmir-open-data-js) |
 | [`izmir-data`](Formula/izmir-data.rb) | `0.3.0` | İzmir Büyükşehir Belediyesi Açık Veri Portalı CLI ve MCP Aracı (Python) | `izmir-data`, `izmir-mcp` | Apache-2.0 | [AtaCanYmc/izmir-open-data-py](https://github.com/AtaCanYmc/izmir-open-data-py) |
 | [`lumina`](Formula/lumina.rb) | `1.0.0` | Lithophane and Spiral Betty 3D Art Generator CLI | `lumina` | MIT | [AtaCanYmc/lumina](https://github.com/AtaCanYmc/lumina) |
@@ -81,6 +84,7 @@ brew tap AtaCanYmc/tap
 
 # Install any formula
 brew install forex-pytory
+brew install izko-gold-price-api
 brew install izmir-cli
 brew install lumina
 brew install resmi-gazete-cli
@@ -101,6 +105,7 @@ Install any formula directly without explicitly tapping beforehand:
 ```bash
 # Install formulae directly
 brew install AtaCanYmc/tap/forex-pytory
+brew install AtaCanYmc/tap/izko-gold-price-api
 brew install AtaCanYmc/tap/izmir-cli
 brew install AtaCanYmc/tap/lumina
 brew install AtaCanYmc/tap/resmi-gazete-cli
@@ -118,6 +123,7 @@ To manage formulae declaratively via `brew bundle`, add the following entries to
 ```ruby
 tap "AtaCanYmc/tap"
 brew "forex-pytory"
+brew "izko-gold-price-api"
 brew "lumina"
 brew "resmi-gazete-cli"
 brew "robo-market-search"
@@ -156,6 +162,30 @@ forex-mcp
 
 - **Dependencies**: `python@3.12`, `cryptography`, `numpy`
 - **Upstream Repository**: [https://github.com/AtaCanYmc/forex-pytory](https://github.com/AtaCanYmc/forex-pytory)
+
+---
+
+### izko-gold-price-api
+
+`izko-gold-price-api` scrapes live gold and currency rates from the Izmir Jewelers Chamber (`izko.org.tr`) using headless Chromium via Playwright, exposing a CLI, Flask REST API, and stdio MCP server.
+
+```bash
+# Verify installation and inspect available commands
+izko-gold-price-api --help
+
+# Fetch live rates or a single price field
+izko-gold-price-api scrape --pretty
+izko-gold-price-api scrape --field GramAltin
+
+# Start the Flask REST API server
+izko-gold-price-api serve --host 127.0.0.1 --port 5000
+
+# Run the MCP server over stdio
+izko-gold-price-mcp
+```
+
+- **Dependencies**: `python@3.12`
+- **Upstream Repository**: [https://github.com/AtaCanYmc/izko-gold-price-api](https://github.com/AtaCanYmc/izko-gold-price-api)
 
 ---
 

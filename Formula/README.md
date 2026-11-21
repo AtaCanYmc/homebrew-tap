@@ -9,6 +9,7 @@ This directory contains Homebrew formula specifications (`.rb`) maintained in th
 | File | Formula Name | Version | License | Target Binary |
 | :--- | :--- | :--- | :--- | :--- |
 | [`forex-pytory.rb`](forex-pytory.rb) | `forex-pytory` | `0.1.2` | Apache-2.0 | `forex-scraper`, `forex-mcp` |
+| [`izko-gold-price-api.rb`](izko-gold-price-api.rb) | `izko-gold-price-api` | `0.2.0` | MIT | `izko-gold-price-api`, `izko-gold-price-mcp` |
 | [`izmir-cli.rb`](izmir-cli.rb) | `izmir-cli` | `2.0.0` | Apache-2.0 | `izmir-cli`, `izmir`, `izmir-mcp` |
 | [`izmir-data.rb`](izmir-data.rb) | `izmir-data` | `0.3.0` | Apache-2.0 | `izmir-data`, `izmir-mcp` |
 | [`lumina.rb`](lumina.rb) | `lumina` | `1.0.0` | MIT | `lumina` |
