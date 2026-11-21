@@ -21,6 +21,8 @@ Showcase and documentation site: [https://atacanymc.github.io/homebrew-tap/](htt
   - [lumina](#lumina)
   - [resmi-gazete-cli](#resmi-gazete-cli)
   - [robo-market-search](#robo-market-search)
+  - [rtfs](#rtfs)
+  - [rxresume](#rxresume)
   - [stock-fetcher](#stock-fetcher)
   - [yargitay-karar-scraper](#yargitay-karar-scraper)
 - [Maintenance and Local Testing](#maintenance-and-local-testing)
@@ -61,6 +63,7 @@ flowchart TD
 | [`lumina`](Formula/lumina.rb) | `1.0.0` | Lithophane and Spiral Betty 3D Art Generator CLI | `lumina` | MIT | [AtaCanYmc/lumina](https://github.com/AtaCanYmc/lumina) |
 | [`resmi-gazete-cli`](Formula/resmi-gazete-cli.rb) | `0.1.2` | T.C. Resmi Gazete Karar, Kanun ve İlan Scraper, CLI ve MCP Sunucusu | `resmi-gazete-cli`, `resmi-gazete-mcp` | Apache-2.0 | [AtaCanYmc/resmi-gazete-cli](https://github.com/AtaCanYmc/resmi-gazete-cli) |
 | [`robo-market-search`](Formula/robo-market-search.rb) | `1.10.0` | Electronics market search and cart optimization CLI | `robo-search` | Apache-2.0 | [AtaCanYmc/robo-market-search](https://github.com/AtaCanYmc/robo-market-search) |
+| [`rtfs`](Formula/rtfs.rb) | `0.1.1` | Multi-Source Movie & TV Script CLI, Python SDK, and FastMCP Server | `rtfs` | AGPL-3.0-or-later | [AtaCanYmc/rtfs](https://github.com/AtaCanYmc/rtfs) |
 | [`rxresume`](Formula/rxresume.rb) | `0.6.0` | Reactive Resume API client, CLI, and FastMCP server | `rxresume`, `rxresume-mcp` | MIT | [AtaCanYmc/reactive-resume-api-client-py](https://github.com/AtaCanYmc/reactive-resume-api-client-py) |
 | [`stock-fetcher`](Formula/stock-fetcher.rb) | `0.2.0` | Unified copyright-free stock image search and download CLI | `stock-fetcher` | Apache-2.0 | [AtaCanYmc/stock-fetcher](https://github.com/AtaCanYmc/stock-fetcher) |
 | [`yargitay-karar-scraper`](Formula/yargitay-karar-scraper.rb) | `0.1.1` | Yargıtay Karar Arama CLI ve FastMCP Sunucusu | `yargitay-karar-cli`, `yargitay-karar-mcp` | Apache-2.0 | [AtaCanYmc/yargitay-karar-scraper](https://github.com/AtaCanYmc/yargitay-karar-scraper) |
@@ -81,6 +84,7 @@ brew install izmir-cli
 brew install lumina
 brew install resmi-gazete-cli
 brew install robo-market-search
+brew install rtfs
 brew install rxresume
 brew install stock-fetcher
 brew install yargitay-karar-scraper
@@ -100,6 +104,7 @@ brew install AtaCanYmc/tap/izmir-cli
 brew install AtaCanYmc/tap/lumina
 brew install AtaCanYmc/tap/resmi-gazete-cli
 brew install AtaCanYmc/tap/robo-market-search
+brew install AtaCanYmc/tap/rtfs
 brew install AtaCanYmc/tap/rxresume
 brew install AtaCanYmc/tap/stock-fetcher
 brew install AtaCanYmc/tap/yargitay-karar-scraper
@@ -211,6 +216,32 @@ robo-search "raspberry pi 5"
 
 - **Dependencies**: `python@3.12`
 - **Upstream Repository**: [https://github.com/AtaCanYmc/robo-market-search](https://github.com/AtaCanYmc/robo-market-search)
+
+---
+
+### rtfs
+
+`rtfs` searches, fetches, parses, and exports movie and TV screenplays from Script Slug, TV Writing, IMSDb, and SubsLikeScript into a structured AST (JSON, Fountain, analytics) and exposes a progressive-disclosure FastMCP server.
+
+```bash
+# Verify installation and inspect available commands
+rtfs --help
+
+# Search across screenplay providers
+rtfs search "The Matrix"
+
+# Export screenplay to Fountain or JSON
+rtfs get "The Matrix" --format fountain --output matrix.fountain
+
+# Display scene and speaking character analytics
+rtfs stats "The Matrix"
+
+# Start the FastMCP server (stdio or SSE)
+rtfs mcp --transport stdio
+```
+
+- **Dependencies**: `python@3.12`
+- **Upstream Repository**: [https://github.com/AtaCanYmc/rtfs](https://github.com/AtaCanYmc/rtfs)
 
 ---
 
