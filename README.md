@@ -68,6 +68,7 @@ flowchart TD
 | [`resmi-gazete-cli`](Formula/resmi-gazete-cli.rb) | `0.1.2` | T.C. Resmi Gazete Karar, Kanun ve İlan Scraper, CLI ve MCP Sunucusu | `resmi-gazete-cli`, `resmi-gazete-mcp` | Apache-2.0 | [AtaCanYmc/resmi-gazete-cli](https://github.com/AtaCanYmc/resmi-gazete-cli) |
 | [`robo-market-search`](Formula/robo-market-search.rb) | `1.10.0` | Electronics market search and cart optimization CLI | `robo-search` | Apache-2.0 | [AtaCanYmc/robo-market-search](https://github.com/AtaCanYmc/robo-market-search) |
 | [`rtfs`](Formula/rtfs.rb) | `0.1.1` | Multi-Source Movie & TV Script CLI, Python SDK, and FastMCP Server | `rtfs` | AGPL-3.0-or-later | [AtaCanYmc/rtfs](https://github.com/AtaCanYmc/rtfs) |
+| [`rubberorca`](Formula/rubberorca.rb) | `0.1.3` | ESP32-S3 USB-OTG HID CLI, Python SDK, and stdio MCP server over BLE 5.0 | `rubberorca`, `rubberorca-mcp` | Apache-2.0 | [AtaCanYmc/RubberOrca](https://github.com/AtaCanYmc/RubberOrca) |
 | [`rxresume`](Formula/rxresume.rb) | `0.6.0` | Reactive Resume API client, CLI, and FastMCP server | `rxresume`, `rxresume-mcp` | MIT | [AtaCanYmc/reactive-resume-api-client-py](https://github.com/AtaCanYmc/reactive-resume-api-client-py) |
 | [`stock-fetcher`](Formula/stock-fetcher.rb) | `0.2.0` | Unified copyright-free stock image search and download CLI | `stock-fetcher` | Apache-2.0 | [AtaCanYmc/stock-fetcher](https://github.com/AtaCanYmc/stock-fetcher) |
 | [`yargitay-karar-scraper`](Formula/yargitay-karar-scraper.rb) | `0.1.1` | Yargıtay Karar Arama CLI ve FastMCP Sunucusu | `yargitay-karar-cli`, `yargitay-karar-mcp` | Apache-2.0 | [AtaCanYmc/yargitay-karar-scraper](https://github.com/AtaCanYmc/yargitay-karar-scraper) |
@@ -90,6 +91,7 @@ brew install lumina
 brew install resmi-gazete-cli
 brew install robo-market-search
 brew install rtfs
+brew install rubberorca
 brew install rxresume
 brew install stock-fetcher
 brew install yargitay-karar-scraper
