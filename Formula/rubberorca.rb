@@ -3,8 +3,8 @@ class Rubberorca < Formula
 
   desc "ESP32-S3 USB-OTG HID CLI, Python SDK, and stdio MCP server over BLE 5.0"
   homepage "https://github.com/AtaCanYmc/RubberOrca"
-  url "https://github.com/AtaCanYmc/RubberOrca/archive/refs/tags/rubber-orca-v0.1.3.tar.gz"
-  sha256 "5549ea22715e70db0d8e691a86e1fd93ac5354ee88f53c7649d85c42b69cb772"
+  url "https://github.com/AtaCanYmc/RubberOrca/archive/refs/tags/rubber-orca-v0.1.4.tar.gz"
+  sha256 "1ff9f6ddd41fd6f2a7cd12b57e87d508432f118f9c9dc686c996eefe6058206f"
   license "Apache-2.0"
   head "https://github.com/AtaCanYmc/RubberOrca.git", branch: "main"
 
