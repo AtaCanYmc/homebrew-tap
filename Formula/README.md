@@ -16,6 +16,8 @@ This directory contains Homebrew formula specifications (`.rb`) maintained in th
 | [`resmi-gazete-cli.rb`](resmi-gazete-cli.rb) | `resmi-gazete-cli` | `0.1.2` | Apache-2.0 | `resmi-gazete-cli`, `resmi-gazete-mcp` |
 | [`robo-market-search.rb`](robo-market-search.rb) | `robo-market-search` | `1.10.0` | Apache-2.0 | `robo-search` |
 | [`rtfs.rb`](rtfs.rb) | `rtfs` | `0.1.1` | AGPL-3.0-or-later | `rtfs` |
+| [`rubberorca.rb`](rubberorca.rb) | `rubberorca` | `0.1.3` | Apache-2.0 | `rubberorca`, `rubberorca-mcp` |
+| [`rubberotter.rb`](rubberotter.rb) | `rubberotter` | `1.4.0` | Apache-2.0 | `rubberotter`, `otter-cli` |
 | [`rxresume.rb`](rxresume.rb) | `rxresume` | `0.6.0` | MIT | `rxresume`, `rxresume-mcp` |
 | [`stock-fetcher.rb`](stock-fetcher.rb) | `stock-fetcher` | `0.2.0` | Apache-2.0 | `stock-fetcher` |
 | [`yargitay-karar-scraper.rb`](yargitay-karar-scraper.rb) | `yargitay-karar-scraper` | `0.1.1` | Apache-2.0 | `yargitay-karar-cli`, `yargitay-karar-mcp` |
