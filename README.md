@@ -50,16 +50,17 @@ flowchart TD
     FormulaDir --> F3["Formula/izmir-cli.rb"]
     FormulaDir --> F4["Formula/izmir-data.rb"]
     FormulaDir --> F5["Formula/lumina.rb"]
-    FormulaDir --> F6["Formula/resmi-gazete-cli.rb"]
-    FormulaDir --> F7["Formula/robo-market-search.rb"]
-    FormulaDir --> F8["Formula/rtfs.rb"]
-    FormulaDir --> F9["Formula/rubberorca.rb"]
-    FormulaDir --> F10["Formula/rubberotter.rb"]
-    FormulaDir --> F11["Formula/rxresume.rb"]
-    FormulaDir --> F12["Formula/stock-fetcher.rb"]
-    FormulaDir --> F13["Formula/yargitay-karar-scraper.rb"]
+    FormulaDir --> F6["Formula/reels-wiki.rb"]
+    FormulaDir --> F7["Formula/resmi-gazete-cli.rb"]
+    FormulaDir --> F8["Formula/robo-market-search.rb"]
+    FormulaDir --> F9["Formula/rtfs.rb"]
+    FormulaDir --> F10["Formula/rubberorca.rb"]
+    FormulaDir --> F11["Formula/rubberotter.rb"]
+    FormulaDir --> F12["Formula/rxresume.rb"]
+    FormulaDir --> F13["Formula/stock-fetcher.rb"]
+    FormulaDir --> F14["Formula/yargitay-karar-scraper.rb"]
 
-    F1 & F2 & F3 & F4 & F5 & F6 & F7 & F8 & F9 & F10 & F11 & F12 & F13 -->|"Download & Verify SHA-256"| Upstream["PyPI, npm & GitHub Releases"]
+    F1 & F2 & F3 & F4 & F5 & F6 & F7 & F8 & F9 & F10 & F11 & F12 & F13 & F14 -->|"Download & Verify SHA-256"| Upstream["PyPI, npm & GitHub Releases"]
     Upstream --> Venv["$(brew --prefix)/libexec/<formula> (Isolated Environment)"]
     Venv --> Bin["$(brew --prefix)/bin/<binary> (Executable Symlink)"]
 ```
@@ -73,6 +74,7 @@ flowchart TD
 | [`izmir-cli`](Formula/izmir-cli.rb) | `2.2.0` | Izmir Buyuksehir Belediyesi Acik Veri Portali CLI Araci | `izmir-cli`, `izmir`, `izmir-mcp` | Apache-2.0 | [AtaCanYmc/izmir-open-data-js](https://github.com/AtaCanYmc/izmir-open-data-js) |
 | [`izmir-data`](Formula/izmir-data.rb) | `0.3.1` | Izmir Buyuksehir Belediyesi Acik Veri Portali CLI ve MCP Sunucusu | `izmir-data`, `izmir-mcp` | Apache-2.0 | [AtaCanYmc/izmir-open-data-py](https://github.com/AtaCanYmc/izmir-open-data-py) |
 | [`lumina`](Formula/lumina.rb) | `1.3.0` | Lithophane and Spiral Betty 3D Art Generator CLI | `lumina` | MIT | [AtaCanYmc/lumina](https://github.com/AtaCanYmc/lumina) |
+| [`reels-wiki`](Formula/reels-wiki.rb) | `0.1.1` | Turn saved Instagram Reels into atomic Obsidian LLM Wiki notes | `reels-sync`, `reels-wiki-mcp`, `reels-wiki-telegram` | MIT | [AtaCanYmc/reels-wiki](https://github.com/AtaCanYmc/reels-wiki) |
 | [`resmi-gazete-cli`](Formula/resmi-gazete-cli.rb) | `0.1.3` | T.C. Resmi Gazete Karar, Kanun ve İlan Scraper, CLI ve MCP Sunucusu | `resmi-gazete-cli`, `resmi-gazete-mcp` | Apache-2.0 | [AtaCanYmc/resmi-gazete-cli](https://github.com/AtaCanYmc/resmi-gazete-cli) |
 | [`robo-market-search`](Formula/robo-market-search.rb) | `1.12.0` | Electronics market search and cart optimization CLI | `robo-search` | Apache-2.0 | [AtaCanYmc/robo-market-search](https://github.com/AtaCanYmc/robo-market-search) |
 | [`rtfs`](Formula/rtfs.rb) | `0.1.1` | Multi-Source Movie & TV Script CLI, Python SDK, and FastMCP Server | `rtfs` | AGPL-3.0-or-later | [AtaCanYmc/rtfs](https://github.com/AtaCanYmc/rtfs) |
@@ -98,6 +100,7 @@ brew install izko-gold-price-api
 brew install izmir-cli
 brew install izmir-data
 brew install lumina
+brew install reels-wiki
 brew install resmi-gazete-cli
 brew install robo-market-search
 brew install rtfs
@@ -122,6 +125,7 @@ brew install AtaCanYmc/tap/izko-gold-price-api
 brew install AtaCanYmc/tap/izmir-cli
 brew install AtaCanYmc/tap/izmir-data
 brew install AtaCanYmc/tap/lumina
+brew install AtaCanYmc/tap/reels-wiki
 brew install AtaCanYmc/tap/resmi-gazete-cli
 brew install AtaCanYmc/tap/robo-market-search
 brew install AtaCanYmc/tap/rtfs
