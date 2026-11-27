@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture Diagram — AtaCanYmc/homebrew-tap</title>
+  <style>
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    }
+    [data-theme="dark"] {
+      --bg-page: #0f1117;
+      --bg-surface: #161922;
+      --bg-elevated: #1d212c;
+      --border: #262b38;
+      --text-primary: #e6edf3;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.12);
+      --zone-fill: rgba(230, 237, 243, 0.02);
+      --zone-stroke: rgba(230, 237, 243, 0.12);
+    }
+    [data-theme="light"] {
+      --bg-page: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-elevated: #f1f5f9;
+      --border: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --accent: #b45309;
+      --accent-soft: rgba(180, 83, 9, 0.08);
+      --zone-fill: rgba(15, 23, 42, 0.02);
+      --zone-stroke: rgba(15, 23, 42, 0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-page);
+      color: var(--text-primary);
+      padding: 2rem 1.5rem;
+      line-height: 1.5;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; }
+    .subtitle { font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem; }
+    .actions { display: flex; gap: 0.75rem; align-items: center; }
+    a.back, button.theme-btn {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.4rem 0.75rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a.back:hover, button.theme-btn:hover { color: var(--text-primary); border-color: var(--accent); }
+    .canvas {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      overflow-x: auto;
+    }
+    svg { width: 100%; height: auto; display: block; min-width: 760px; }
+    .node-title { font-family: var(--font-sans); font-size: 13px; font-weight: 600; fill: var(--text-primary); }
+    .node-sub { font-family: var(--font-mono); font-size: 11px; fill: var(--text-secondary); }
+    .zone-label { font-family: var(--font-mono); font-size: 10px; font-weight: 600; fill: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .edge-label { font-family: var(--font-mono); font-size: 10.5px; fill: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Homebrew Tap Distribution Architecture</h1>
+        <p class="subtitle">How <code>AtaCanYmc/homebrew-tap</code> resolves, isolates, and links 15 CLI and MCP formulae.</p>
+      </div>
+      <div class="actions">
+        <button class="theme-btn" type="button" id="theme-toggle">Toggle Theme</button>
+        <a class="back" href="index.html">&larr; Back to Catalogue</a>
+      </div>
+    </header>
+
+    <div class="canvas">
+      <svg viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Homebrew Tap distribution architecture">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="var(--text-muted)"/>
+          </marker>
+          <marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="var(--accent)"/>
+          </marker>
+        </defs>
+
+        <!-- Zones (z-order: bg -> zones -> arrows -> nodes) -->
+        <rect x="24" y="28" width="210" height="364" rx="8" fill="var(--zone-fill)" stroke="var(--zone-stroke)" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="38" y="48" class="zone-label">Developer Machine</text>
+
+        <rect x="280" y="28" width="320" height="364" rx="8" fill="var(--zone-fill)" stroke="var(--zone-stroke)" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="294" y="48" class="zone-label">Tap &amp; Upstream Sources</text>
+
+        <rect x="646" y="28" width="250" height="364" rx="8" fill="var(--zone-fill)" stroke="var(--zone-stroke)" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="660" y="48" class="zone-label">Homebrew Prefix</text>
+
+        <!-- Orthogonal Connectors -->
+        <!-- Terminal -> Tap Repo -->
+        <path d="M 210,115 H 304" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+        <text x="257" y="106" text-anchor="middle" class="edge-label">brew tap</text>
+
+        <!-- Tap Repo -> Formulae -->
+        <path d="M 440,150 V 192" fill="none" stroke="var(--text-muted)" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+        <!-- Formulae -> Upstream -->
+        <path d="M 440,262 V 302" fill="none" stroke="var(--text-muted)" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <text x="452" y="286" class="edge-label">SHA-256</text>
+
+        <!-- Upstream -> Venv -->
+        <path d="M 576,336 H 614 Q 622,336 622,328 V 123 Q 622,115 630,115 H 668" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+
+        <!-- Venv -> Bin Symlink -->
+        <path d="M 771,150 V 192" fill="none" stroke="var(--text-muted)" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+        <!-- Bin Symlink -> Terminal (return path) -->
+        <path d="M 668,227 H 632 Q 624,227 624,235 V 366 Q 624,374 616,374 H 137 Q 129,374 129,366 V 150" fill="none" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+        <text x="375" y="366" text-anchor="middle" class="edge-label">PATH execution</text>
+
+        <!-- Nodes -->
+        <!-- Terminal -->
+        <rect x="48" y="80" width="162" height="70" rx="6" fill="var(--bg-elevated)" stroke="var(--accent)" stroke-width="1.4"/>
+        <text x="129" y="109" text-anchor="middle" class="node-title">Developer Terminal</text>
+        <text x="129" y="129" text-anchor="middle" class="node-sub">brew install &lt;formula&gt;</text>
+
+        <!-- Tap Repo -->
+        <rect x="304" y="80" width="272" height="70" rx="6" fill="var(--bg-elevated)" stroke="var(--border)" stroke-width="1.2"/>
+        <text x="440" y="109" text-anchor="middle" class="node-title">AtaCanYmc/homebrew-tap</text>
+        <text x="440" y="129" text-anchor="middle" class="node-sub">15 Ruby Formulae</text>
+
+        <!-- Formula/ -->
+        <rect x="304" y="192" width="272" height="70" rx="6" fill="var(--bg-elevated)" stroke="var(--border)" stroke-width="1.2"/>
+        <text x="440" y="221" text-anchor="middle" class="node-title">Formula/*.rb</text>
+        <text x="440" y="241" text-anchor="middle" class="node-sub">Dependencies &amp; SHA-256</text>
+
+        <!-- Upstream -->
+        <rect x="304" y="302" width="272" height="68" rx="6" fill="var(--bg-elevated)" stroke="var(--border)" stroke-width="1.2"/>
+        <text x="440" y="330" text-anchor="middle" class="node-title">Upstream Tarballs</text>
+        <text x="440" y="350" text-anchor="middle" class="node-sub">PyPI, npm, GitHub</text>
+
+        <!-- Isolated Venv -->
+        <rect x="668" y="80" width="206" height="70" rx="6" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.4"/>
+        <text x="771" y="109" text-anchor="middle" class="node-title">Isolated Runtime</text>
+        <text x="771" y="129" text-anchor="middle" class="node-sub">libexec/&lt;formula&gt;</text>
+
+        <!-- Bin Symlink -->
+        <rect x="668" y="192" width="206" height="70" rx="6" fill="var(--bg-elevated)" stroke="var(--border)" stroke-width="1.2"/>
+        <text x="771" y="221" text-anchor="middle" class="node-title">Executable Symlink</text>
+        <text x="771" y="241" text-anchor="middle" class="node-sub">$(brew --prefix)/bin</text>
+      </svg>
+    </div>
+  </div>
+  <script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+      const root = document.documentElement;
+      root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+    });
+  </script>
+</body>
+</html>

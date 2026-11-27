@@ -6,6 +6,8 @@ class HomeLiteLlm < Formula
   license "MIT"
 
   def install
+    pkgshare.install "docs/homelitellm.patch.yml"
+    inreplace "scripts/hlm", "docs/homelitellm.patch.yml", "#{pkgshare}/homelitellm.patch.yml"
     bin.install "scripts/hlm"
   end
 

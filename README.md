@@ -18,10 +18,12 @@ Showcase and documentation site: [https://atacanymc.github.io/homebrew-tap/](htt
   - [3. Brewfile Integration](#3-brewfile-integration)
 - [Formula Details](#formula-details)
   - [forex-pytory](#forex-pytory)
+  - [home-lite-llm](#home-lite-llm)
   - [izko-gold-price-api](#izko-gold-price-api)
   - [izmir-cli](#izmir-cli)
   - [izmir-data](#izmir-data)
   - [lumina](#lumina)
+  - [reels-wiki](#reels-wiki)
   - [resmi-gazete-cli](#resmi-gazete-cli)
   - [robo-market-search](#robo-market-search)
   - [rtfs](#rtfs)
@@ -40,29 +42,14 @@ Showcase and documentation site: [https://atacanymc.github.io/homebrew-tap/](htt
 
 This repository distributes standalone CLI utilities and Model Context Protocol (MCP) servers packaged using Homebrew formula definitions. Python and Node.js formulae isolate dependencies inside self-contained virtual environments, preventing version conflicts with the host system.
 
+Interactive architecture diagram: [docs/architecture.html](https://atacanymc.github.io/homebrew-tap/architecture.html)
+
 ```mermaid
-flowchart TD
-    User["Developer Terminal"] -->|"brew tap AtaCanYmc/tap"| TapRepo["AtaCanYmc/homebrew-tap"]
-    TapRepo --> FormulaDir["Formula/ Directory"]
-
-    FormulaDir --> F1["Formula/forex-pytory.rb"]
-    FormulaDir --> F2["Formula/izko-gold-price-api.rb"]
-    FormulaDir --> F3["Formula/izmir-cli.rb"]
-    FormulaDir --> F4["Formula/izmir-data.rb"]
-    FormulaDir --> F5["Formula/lumina.rb"]
-    FormulaDir --> F6["Formula/reels-wiki.rb"]
-    FormulaDir --> F7["Formula/resmi-gazete-cli.rb"]
-    FormulaDir --> F8["Formula/robo-market-search.rb"]
-    FormulaDir --> F9["Formula/rtfs.rb"]
-    FormulaDir --> F10["Formula/rubberorca.rb"]
-    FormulaDir --> F11["Formula/rubberotter.rb"]
-    FormulaDir --> F12["Formula/rxresume.rb"]
-    FormulaDir --> F13["Formula/stock-fetcher.rb"]
-    FormulaDir --> F14["Formula/yargitay-karar-scraper.rb"]
-
-    F1 & F2 & F3 & F4 & F5 & F6 & F7 & F8 & F9 & F10 & F11 & F12 & F13 & F14 -->|"Download & Verify SHA-256"| Upstream["PyPI, npm & GitHub Releases"]
-    Upstream --> Venv["$(brew --prefix)/libexec/<formula> (Isolated Environment)"]
-    Venv --> Bin["$(brew --prefix)/bin/<binary> (Executable Symlink)"]
+flowchart LR
+    User["Developer Terminal"] -->|"brew tap AtaCanYmc/tap"| Tap["AtaCanYmc/homebrew-tap (15 Formulae)"]
+    Tap -->|"SHA-256 Verify"| Upstream["PyPI, npm & GitHub"]
+    Upstream --> Venv["libexec/<formula>"]
+    Venv --> Bin["bin/<binary>"]
 ```
 
 ## Available Formulae
@@ -70,15 +57,16 @@ flowchart TD
 | Formula | Version | Description | Target Binary | License | Source Repository |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | [`forex-pytory`](Formula/forex-pytory.rb) | `0.2.0` | Economic calendar scraper CLI and MCP server across financial markets | `forex-scraper`, `forex-mcp` | Apache-2.0 | [AtaCanYmc/forex-pytory](https://github.com/AtaCanYmc/forex-pytory) |
+| [`home-lite-llm`](Formula/home-lite-llm.rb) | `1.2.0` | Self-hosted LiteLLM gateway CLI for local and cloud AI routing | `hlm` | MIT | [AtaCanYmc/home-lite-llm](https://github.com/AtaCanYmc/home-lite-llm) |
 | [`izko-gold-price-api`](Formula/izko-gold-price-api.rb) | `0.2.0` | Izmir Jewelers Chamber gold and currency rates CLI, REST API, and MCP server | `izko-gold-price-api`, `izko-gold-price-mcp` | MIT | [AtaCanYmc/izko-gold-price-api](https://github.com/AtaCanYmc/izko-gold-price-api) |
 | [`izmir-cli`](Formula/izmir-cli.rb) | `2.2.0` | Izmir Buyuksehir Belediyesi Acik Veri Portali CLI Araci | `izmir-cli`, `izmir`, `izmir-mcp` | Apache-2.0 | [AtaCanYmc/izmir-open-data-js](https://github.com/AtaCanYmc/izmir-open-data-js) |
 | [`izmir-data`](Formula/izmir-data.rb) | `0.3.1` | Izmir Buyuksehir Belediyesi Acik Veri Portali CLI ve MCP Sunucusu | `izmir-data`, `izmir-mcp` | Apache-2.0 | [AtaCanYmc/izmir-open-data-py](https://github.com/AtaCanYmc/izmir-open-data-py) |
 | [`lumina`](Formula/lumina.rb) | `1.3.0` | Lithophane and Spiral Betty 3D Art Generator CLI | `lumina` | MIT | [AtaCanYmc/lumina](https://github.com/AtaCanYmc/lumina) |
-| [`reels-wiki`](Formula/reels-wiki.rb) | `0.1.1` | Turn saved Instagram Reels into atomic Obsidian LLM Wiki notes | `reels-sync`, `reels-wiki-mcp`, `reels-wiki-telegram` | MIT | [AtaCanYmc/reels-wiki](https://github.com/AtaCanYmc/reels-wiki) |
+| [`reels-wiki`](Formula/reels-wiki.rb) | `0.1.2` | Turn saved Instagram Reels into atomic Obsidian LLM Wiki notes | `reels-sync` | MIT | [AtaCanYmc/reels-wiki](https://github.com/AtaCanYmc/reels-wiki) |
 | [`resmi-gazete-cli`](Formula/resmi-gazete-cli.rb) | `0.1.3` | T.C. Resmi Gazete Karar, Kanun ve İlan Scraper, CLI ve MCP Sunucusu | `resmi-gazete-cli`, `resmi-gazete-mcp` | Apache-2.0 | [AtaCanYmc/resmi-gazete-cli](https://github.com/AtaCanYmc/resmi-gazete-cli) |
 | [`robo-market-search`](Formula/robo-market-search.rb) | `1.12.0` | Electronics market search and cart optimization CLI | `robo-search` | Apache-2.0 | [AtaCanYmc/robo-market-search](https://github.com/AtaCanYmc/robo-market-search) |
-| [`rtfs`](Formula/rtfs.rb) | `0.1.1` | Multi-Source Movie & TV Script CLI, Python SDK, and FastMCP Server | `rtfs` | AGPL-3.0-or-later | [AtaCanYmc/rtfs](https://github.com/AtaCanYmc/rtfs) |
-| [`rubberorca`](Formula/rubberorca.rb) | `0.1.3` | ESP32-S3 USB-OTG HID CLI, Python SDK, and stdio MCP server over BLE 5.0 | `rubberorca`, `rubberorca-mcp` | Apache-2.0 | [AtaCanYmc/RubberOrca](https://github.com/AtaCanYmc/RubberOrca) |
+| [`rtfs`](Formula/rtfs.rb) | `0.1.2` | Multi-Source Movie & TV Script CLI, Python SDK, and FastMCP Server | `rtfs` | AGPL-3.0-or-later | [AtaCanYmc/rtfs](https://github.com/AtaCanYmc/rtfs) |
+| [`rubberorca`](Formula/rubberorca.rb) | `0.1.4` | ESP32-S3 USB-OTG HID CLI, Python SDK, and stdio MCP server over BLE 5.0 | `rubberorca`, `rubberorca-mcp` | Apache-2.0 | [AtaCanYmc/RubberOrca](https://github.com/AtaCanYmc/RubberOrca) |
 | [`rubberotter`](Formula/rubberotter.rb) | `1.4.0` | ATmega32U4 USB HID CLI, Python SDK, and MCP server over BLE and USB Serial | `rubberotter`, `otter-cli` | Apache-2.0 | [AtaCanYmc/RubberOtter](https://github.com/AtaCanYmc/RubberOtter) |
 | [`rxresume`](Formula/rxresume.rb) | `0.8` | Reactive Resume API client, CLI, and FastMCP server | `rxresume`, `rxresume-mcp` | MIT | [AtaCanYmc/reactive-resume-api-client-py](https://github.com/AtaCanYmc/reactive-resume-api-client-py) |
 | [`stock-fetcher`](Formula/stock-fetcher.rb) | `0.4.0` | Unified copyright-free stock image search and download CLI | `stock-fetcher` | Apache-2.0 | [AtaCanYmc/stock-fetcher](https://github.com/AtaCanYmc/stock-fetcher) |
@@ -96,6 +84,7 @@ brew tap AtaCanYmc/tap
 
 # Install any formula
 brew install forex-pytory
+brew install home-lite-llm
 brew install izko-gold-price-api
 brew install izmir-cli
 brew install izmir-data
@@ -121,6 +110,7 @@ Install any formula directly without explicitly tapping beforehand:
 ```bash
 # Install formulae directly
 brew install AtaCanYmc/tap/forex-pytory
+brew install AtaCanYmc/tap/home-lite-llm
 brew install AtaCanYmc/tap/izko-gold-price-api
 brew install AtaCanYmc/tap/izmir-cli
 brew install AtaCanYmc/tap/izmir-data
@@ -143,10 +133,12 @@ To manage formulae declaratively via `brew bundle`, add the following entries to
 ```ruby
 tap "AtaCanYmc/tap"
 brew "forex-pytory"
+brew "home-lite-llm"
 brew "izko-gold-price-api"
 brew "izmir-cli"
 brew "izmir-data"
 brew "lumina"
+brew "reels-wiki"
 brew "resmi-gazete-cli"
 brew "robo-market-search"
 brew "rtfs"
@@ -186,6 +178,20 @@ forex-mcp
 
 - **Dependencies**: `python@3.12`, `cryptography`, `numpy`
 - **Upstream Repository**: [https://github.com/AtaCanYmc/forex-pytory](https://github.com/AtaCanYmc/forex-pytory)
+
+---
+
+### home-lite-llm
+
+`hlm` is a self-hosted LiteLLM gateway CLI for routing requests across local and cloud AI providers.
+
+```bash
+# Verify installation and inspect available commands
+hlm help
+```
+
+- **Dependencies**: None
+- **Upstream Repository**: [https://github.com/AtaCanYmc/home-lite-llm](https://github.com/AtaCanYmc/home-lite-llm)
 
 ---
 
@@ -272,6 +278,20 @@ lumina spiral portrait.jpg --radius 100 --lines 40
 
 - **Dependencies**: `python@3.12`, `numpy`, `opencv`
 - **Upstream Repository**: [https://github.com/AtaCanYmc/lumina](https://github.com/AtaCanYmc/lumina)
+
+---
+
+### reels-wiki
+
+`reels-wiki` turns saved Instagram Reels into atomic Obsidian LLM Wiki notes.
+
+```bash
+# Verify installation and inspect available commands
+reels-sync --help
+```
+
+- **Dependencies**: `python@3.12`
+- **Upstream Repository**: [https://github.com/AtaCanYmc/reels-wiki](https://github.com/AtaCanYmc/reels-wiki)
 
 ---
 
