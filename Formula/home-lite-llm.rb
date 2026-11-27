@@ -9,6 +9,7 @@ class HomeLiteLlm < Formula
     pkgshare.install "docs/homelitellm.patch.yml"
     inreplace "scripts/hlm", "docs/homelitellm.patch.yml", "#{pkgshare}/homelitellm.patch.yml"
     bin.install "scripts/hlm"
+    pkgshare.install "docs/homelitellm.patch.yml"
   end
 
   test do
