@@ -1,8 +1,8 @@
 class HomeLiteLlm < Formula
   desc "Self-hosted LiteLLM gateway CLI for local and cloud AI routing"
   homepage "https://github.com/AtaCanYmc/home-lite-llm"
-  url "https://github.com/AtaCanYmc/home-lite-llm/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "fd47104b3318130ffb68d733fd91cfdce5d6b0f5dd9c42f7d362cacedd063d67"
+  url "https://github.com/AtaCanYmc/home-lite-llm/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "97ef8b96765fbdc0e5eb876c47ac5c9eaebfa6c0e74250935e0f7dbb3b97a637"
   license "MIT"
 
   def install
