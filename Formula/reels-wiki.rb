@@ -3,8 +3,8 @@ class ReelsWiki < Formula
 
   desc "Turn saved Instagram Reels into atomic Obsidian LLM Wiki notes"
   homepage "https://github.com/AtaCanYmc/reels-wiki"
-  url "https://github.com/AtaCanYmc/reels-wiki/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "a8acf39b8d0991412a231e35d203abe93677c814d6fe39386030b5975e879144"
+  url "https://github.com/AtaCanYmc/reels-wiki/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "ec32236a2394b5816f44a6ba037f0b7ff114e988fea902adbaecbe644fb25b94"
   license "MIT"
 
   depends_on "python@3.12"
