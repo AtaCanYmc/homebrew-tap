@@ -44,13 +44,7 @@ This repository distributes standalone CLI utilities and Model Context Protocol 
 
 Interactive architecture diagram: [docs/architecture.html](https://atacanymc.github.io/homebrew-tap/architecture.html)
 
-```mermaid
-flowchart LR
-    User["Developer Terminal"] -->|"brew tap AtaCanYmc/tap"| Tap["AtaCanYmc/homebrew-tap (15 Formulae)"]
-    Tap -->|"SHA-256 Verify"| Upstream["PyPI, npm & GitHub"]
-    Upstream --> Venv["libexec/<formula>"]
-    Venv --> Bin["bin/<binary>"]
-```
+[![Homebrew Tap Architecture](docs/architecture.png)](https://atacanymc.github.io/homebrew-tap/architecture.html)
 
 ## Available Formulae
 
