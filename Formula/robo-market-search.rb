@@ -3,8 +3,8 @@ class RoboMarketSearch < Formula
 
   desc "Turkiye'nin Elektronik Market Arama Motoru ve Sepet Optimizasyon CLI"
   homepage "https://github.com/AtaCanYmc/robo-market-search"
-  url "https://files.pythonhosted.org/packages/06/75/7da20f38bde48435e6df828f3b67a36508fa880e47a2a782fb238bf2e4d2/robo_market_search-1.12.0.tar.gz"
-  sha256 "6c7442bae2dfda9f6eb9504f98435cfc6bab605cc60350bae6793413bc6aa5bf"
+  url "https://files.pythonhosted.org/packages/5e/47/de26895ba5b16fe83769aa8a6946fc41f0ed2e1249009d09e7b526bb0099/robo_market_search-1.13.0.tar.gz"
+  sha256 "83bb55ece636396b6e2fd2b48897065c686dfe66e25ba16e5100ef4f132bbaed"
   license "Apache-2.0"
 
   depends_on "python@3.12"
@@ -15,8 +15,8 @@ class RoboMarketSearch < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/fd/11/b524cbd9bbdaca58608e4cf4053fd463417549e1959fa8d3aa18319f9555/certifi-2026.10.23.tar.gz"
-    sha256 "a9895e6e2758b371e0545e321a3a8fd1fcfd9829ada8824a936dfb16aaaf36cd"
+    url "https://files.pythonhosted.org/packages/51/33/4cd27639502f010084bcef7a2036391dd637439901341ce1a530f36f6e51/certifi-2026.11.20.tar.gz"
+    sha256 "af1cb240a8133f105aa52684a3a3258339d7f2fd0bd4e2812698ff5cf5588c4e"
   end
 
   resource "cffi" do
@@ -35,8 +35,8 @@ class RoboMarketSearch < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/17/35/bf779c1cc376bc216a2d94e3b3d9ee48347296af29bedfc6caaf96bc132f/soupsieve-4.1.2.tar.gz"
-    sha256 "c6539a2638f26991463527337e39d630e3cbb86d024f52282a510535b8a7e09f"
+    url "https://files.pythonhosted.org/packages/82/77/d59ca6aa338bdd8d880234d15b7c466cb176e44502899a9df81ba2e13cd0/soupsieve-4.1.3.tar.gz"
+    sha256 "13f70186c8f40bf8d0ff7bbab09a18fb149600b465269207b5e5b588f55fda08"
   end
 
   resource "typing-extensions" do
