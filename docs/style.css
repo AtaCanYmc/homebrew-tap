@@ -863,8 +863,6 @@ button:disabled {
   font-size: 0.75rem;
   color: var(--text-secondary);
   cursor: pointer;
-  margin-left: auto;
-  margin-right: 0.5rem;
 }
 .builder-panel {
   background: var(--bg-surface);
@@ -994,4 +992,16 @@ html, body {
   .formula-grid.view-list .formula-card {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+/* Prevent grid/flex blowout from long formula commands */
+.formula-card {
+  min-width: 0;
+}
+.code-line {
+  min-width: 0;
+}
+.code-line code {
+  min-width: 0;
+  overflow-x: auto;
 }
