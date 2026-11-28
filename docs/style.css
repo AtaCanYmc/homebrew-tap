@@ -953,3 +953,31 @@ button:disabled {
     grid-template-columns: 1fr;
   }
 }
+
+/* Responsive & Hallmark Mobile Hardening */
+html, body {
+  overflow-x: clip;
+}
+.search-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.search-wrapper .search-input {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+.view-btn {
+  min-height: 38px;
+}
+@media (max-width: 640px) {
+  .view-btn,
+  .builder-actions .copy-btn {
+    min-height: 44px;
+    padding: 0.5rem 0.85rem;
+  }
+  .formula-grid.view-list .formula-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
