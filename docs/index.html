@@ -110,9 +110,13 @@
             <h2 class="section-title">Available Formulae</h2>
             <p class="section-subtitle">Browse tools packaged in this repository.</p>
           </div>
-          <div class="search-wrapper">
+          <div class="search-wrapper" style="display:flex;gap:0.5rem;align-items:center;">
             <label for="formula-search" class="visually-hidden">Search formulae</label>
             <input type="search" id="formula-search" class="search-input" placeholder="Filter formula (e.g. lumina, 3d, lithophane)..." autocomplete="off">
+            <div class="view-toggle" role="group" aria-label="View mode">
+              <button type="button" class="view-btn active" data-view="cards" aria-pressed="true">Cards</button>
+              <button type="button" class="view-btn" data-view="list" aria-pressed="false">List</button>
+            </div>
           </div>
         </div>
 

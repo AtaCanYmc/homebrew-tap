@@ -246,3 +246,29 @@
       updateBuilder();
     });
   }
+
+  // 6. Cards / Compact List View Toggle
+  const VIEW_KEY = 'tap_view_mode';
+  const grid = document.querySelector('.formula-grid');
+  const viewBtns = document.querySelectorAll('.view-btn');
+
+  function applyView(mode) {
+    if (!grid) return;
+    grid.classList.toggle('view-list', mode === 'list');
+    viewBtns.forEach((btn) => {
+      const active = btn.getAttribute('data-view') === mode;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+  }
+
+  const savedView = localStorage.getItem(VIEW_KEY);
+  if (savedView === 'list' || savedView === 'cards') applyView(savedView);
+
+  viewBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const mode = btn.getAttribute('data-view');
+      localStorage.setItem(VIEW_KEY, mode);
+      applyView(mode);
+    });
+  });
