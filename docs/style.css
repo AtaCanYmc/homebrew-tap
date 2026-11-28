@@ -482,9 +482,10 @@ button:disabled {
 
 .card-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-4);
+  gap: 0.5rem var(--space-3);
 }
 
 .card-title-group {
@@ -963,6 +964,19 @@ html, body {
   flex-wrap: wrap;
   gap: 0.5rem;
   align-items: center;
+  min-width: 0;
+  width: 100%;
+  max-width: 480px;
+}
+.formula-grid.view-list .formula-card {
+  padding: 0.75rem 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.5fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+.formula-grid.view-list .formula-card > * {
+  min-width: 0;
 }
 .search-wrapper .search-input {
   flex: 1 1 220px;
