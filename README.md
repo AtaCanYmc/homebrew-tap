@@ -479,7 +479,26 @@ yargitay-karar-mcp
 
 ## Maintenance and Local Testing
 
-When contributing or verifying formulae locally, run Homebrew's verification suite:
+When contributing or verifying formulae locally, run the `Makefile` checks or Homebrew's verification suite:
+
+```bash
+# Run Ruby syntax and doc-sync checks
+make test
+
+# Run Homebrew strict audit across all formulae
+make audit
+```
+
+Automated CI workflows in `.github/workflows/`:
+- `bump-formula.yml`: Handles `repository_dispatch` (`bump-formula`) events to update formula URLs, SHA-256 hashes, and Python resources, then opens a PR.
+- `livecheck.yml`: Runs `brew livecheck` weekly (and via `workflow_dispatch`) to detect upstream releases.
+- `autobump.yml`: Runs `brew bump` and syncs formula versions across `README.md`, `Formula/README.md`, and `docs/index.html`.
+- `tests.yml`: Runs `make test` (`docs-sync`) and `brew test-bot` on macOS and Linux.
+
+Category `Brewfile` profiles are available at the repository root:
+- [`Brewfile.ai-mcp`](Brewfile.ai-mcp) (`home-lite-llm`, `reels-wiki`, `rtfs`, `stock-fetcher`, `robo-market-search`, `rxresume`)
+- [`Brewfile.civic-tr`](Brewfile.civic-tr) (`izmir-cli`, `izmir-data`, `resmi-gazete-cli`, `yargitay-karar-scraper`, `izko-gold-price-api`)
+- [`Brewfile.hardware`](Brewfile.hardware) (`rubberorca`, `rubberotter`)
 
 ```bash
 # 1. Audit formula syntax and Homebrew style guidelines
