@@ -8,6 +8,7 @@ on:
       - main
     paths:
       - .github/workflows/autobump.yml
+      - Formula/*.rb
   schedule:
     # Every day at 3:50 UTC
     - cron: 50 3 * * *
@@ -36,6 +37,7 @@ jobs:
         uses: Homebrew/actions/git-user-config@ceec4e8419bb3c97ce96e9dda7738499ed5f869d # 2026.11.14.1
 
       - name: Bump formulae
+        if: github.event_name != 'push'
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HOMEBREW_NO_INSTALL_FROM_API: 1
@@ -43,3 +45,52 @@ jobs:
           HOMEBREW_GIT_COMMITTER_EMAIL: ${{ steps.git_setup.outputs.email }}
           TAP_NAME: ${{ steps.set-up-homebrew.outputs.tap-name }}
         run: brew bump --no-fork --open-pr --formulae --bump-synced --tap="$TAP_NAME"
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Sync version tags in README and docs
+        run: |
+          python3 - <<'EOF'
+          import glob, re
+
+          versions = {}
+          for path in sorted(glob.glob("Formula/*.rb")):
+              name = path.split("/")[-1].replace(".rb", "")
+              text = open(path, encoding="utf-8").read()
+              m = re.search(r'^\s*version\s+"([^"]+)"', text, re.M)
+              if not m:
+                  m = re.search(r'url\s+"[^"]*?(?:v|-)(\d+\.\d+(?:\.\d+)?)\.(?:tar\.gz|tgz|zip)"', text)
+              if m:
+                  versions[name] = m.group(1)
+
+          for doc in ("README.md", "Formula/README.md"):
+              content = open(doc, encoding="utf-8").read()
+              for name, ver in versions.items():
+                  content = re.sub(
+                      rf'(\|\s*\[`{re.escape(name)}(?:\.rb)?`\]\([^)]+\)\s*\|\s*(?:`{re.escape(name)}`\s*\|\s*)?`)[^`]+(`)',
+                      rf'\g<1>{ver}\g<2>',
+                      content,
+                  )
+              open(doc, "w", encoding="utf-8").write(content)
+
+          html_path = "docs/index.html"
+          html = open(html_path, encoding="utf-8").read()
+          for name, ver in versions.items():
+              html = re.sub(
+                  rf'(<h3 class="formula-name">{re.escape(name)}</h3>\s*<span class="version-badge">)v?[^<]+(</span>)',
+                  rf'\g<1>v{ver}\g<2>',
+                  html,
+              )
+          open(html_path, "w", encoding="utf-8").write(html)
+          EOF
+
+      - name: Commit synced versions
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "${{ steps.git_setup.outputs.name }}"
+            git config user.email "${{ steps.git_setup.outputs.email }}"
+            git add README.md Formula/README.md docs/index.html
+            git commit -m "docs: sync formula versions in README and website [skip ci]"
+            git push
+          fi
