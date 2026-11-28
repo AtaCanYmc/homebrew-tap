@@ -1,0 +1,27 @@
+# AtaCanYmc/homebrew-tap
+
+> Official Homebrew Tap distributing 15 standalone CLI utilities and Model Context Protocol (MCP) servers for macOS and Linux.
+
+- Tap: `brew tap AtaCanYmc/tap`
+- Install any formula: `brew install AtaCanYmc/tap/<formula>`
+- Website: https://atacanymc.github.io/homebrew-tap/
+- Repository: https://github.com/AtaCanYmc/homebrew-tap
+- Architecture: https://atacanymc.github.io/homebrew-tap/architecture.html
+
+## Formulae
+
+- `forex-pytory` (0.2.0): Economic calendar scraper CLI and MCP server (`forex-scraper`, `forex-mcp`)
+- `home-lite-llm` (1.2.0): Self-hosted LiteLLM gateway CLI (`hlm`)
+- `izko-gold-price-api` (0.2.0): Izmir Jewelers Chamber gold/currency CLI, REST API, and MCP server (`izko-gold-price-api`, `izko-gold-price-mcp`)
+- `izmir-cli` (2.2.0): Izmir Open Data Portal Node.js CLI and MCP server (`izmir-cli`, `izmir`, `izmir-mcp`)
+- `izmir-data` (0.3.1): Izmir Open Data Portal Python CLI and MCP server (`izmir-data`, `izmir-mcp`)
+- `lumina` (1.3.0): Lithophane and Spiral Betty 3D Art Generator CLI, PySide6 GUI, and WebGL viewer (`lumina`)
+- `reels-wiki` (0.1.2): Turn saved Instagram Reels into atomic Obsidian LLM Wiki notes (`reels-sync`)
+- `resmi-gazete-cli` (0.1.3): T.C. Resmi Gazete scraper CLI and MCP server (`resmi-gazete-cli`, `resmi-gazete-mcp`)
+- `robo-market-search` (1.12.0): Electronics market search, cart optimizer, and MCP server (`robo-search`)
+- `rtfs` (0.1.2): Multi-source movie & TV script CLI, Python SDK, and FastMCP server (`rtfs`)
+- `rubberorca` (0.1.4): ESP32-S3 USB-OTG HID CLI, Python SDK, and BLE 5.0 MCP server (`rubberorca`, `rubberorca-mcp`)
+- `rubberotter` (1.4.0): ATmega32U4 USB HID CLI and Python SDK (`rubberotter`, `otter-cli`)
+- `rxresume` (0.8): Reactive Resume API client, CLI, and FastMCP server (`rxresume`, `rxresume-mcp`)
+- `stock-fetcher` (0.4.0): Copyright-free stock image search CLI and MCP server (`stock-fetcher`)
+- `yargitay-karar-scraper` (0.1.4): Yargıtay decision search CLI and FastMCP server (`yargitay-karar-cli`, `yargitay-karar-mcp`)
