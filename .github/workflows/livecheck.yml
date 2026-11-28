@@ -23,12 +23,12 @@ jobs:
 
       - name: Run brew livecheck
         run: |
-          brew livecheck --tap="${{ github.repository }}" --json | python3 - <<'EOF'
+          brew livecheck --tap="${{ github.repository }}" --json | python3 -c '
           import json, sys
           data = json.load(sys.stdin)
           outdated = [d for d in data if d.get("version", {}).get("outdated")]
           for d in outdated:
               v = d["version"]
-              print(f"OUTDATED: {d['formula']} ({v.get('current')} -> {v.get('latest')})")
+              print("OUTDATED: {} ({} -> {})".format(d["formula"], v.get("current"), v.get("latest")))
           print(f"Checked {len(data)} formulae, {len(outdated)} outdated.")
-          EOF
+          '
