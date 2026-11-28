@@ -53,3 +53,30 @@ Upstream repositories can trigger `bump-formula.yml` on release by sending a `re
 | `make js-check` | `node --check docs/app.js` | Validates showcase JavaScript syntax |
 | `make diagram` | Chrome headless screenshot | Renders `docs/architecture.html` to `docs/architecture.png` |
 | `make test` | `syntax` + `js-check` + doc-sync | Verifies all formulae exist in `README.md`, `Formula/README.md`, and `docs/index.html` |
+
+## Formula Bump Guide
+
+### 1. Manual Trigger via GitHub Actions
+
+1. Open the repository **Actions** tab on GitHub.
+2. Select **brew bump** (`autobump.yml`) or **Weekly Livecheck** (`livecheck.yml`).
+3. Click **Run workflow** on `main` to check upstream releases and open bump PRs.
+
+### 2. Local Bump via Homebrew CLI
+
+```bash
+# Check which formulae have newer upstream releases
+make livecheck
+
+# Bump a specific formula and open a PR
+brew bump-formula-pr --url="<tarball-url>" --sha256="<sha256>" AtaCanYmc/tap/<formula>
+
+# Verify style, strict audit, and doc-sync locally
+make style
+make audit
+make test
+```
+
+### 3. Automated Bump via Upstream Release
+
+When an upstream repository emits `repository_dispatch` (`bump-formula`), `bump-formula.yml` updates `Formula/<formula>.rb`, refreshes Python resources if needed, and opens a PR. Once merged into `main`, `autobump.yml` syncs the new version into `README.md`, `Formula/README.md`, and `docs/index.html`.
