@@ -1,0 +1,6 @@
+tap "AtaCanYmc/tap"
+brew "izmir-cli"
+brew "izmir-data"
+brew "resmi-gazete-cli"
+brew "yargitay-karar-scraper"
+brew "izko-gold-price-api"

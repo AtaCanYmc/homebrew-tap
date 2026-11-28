@@ -257,7 +257,7 @@ izmir-mcp
 
 ### lumina
 
-Lumina converts 2D raster images into 3D-printable lithophane STL meshes and Spiral Betty raster patterns.
+Lumina converts 2D raster images into 3D-printable lithophane STL meshes and Spiral Betty raster patterns, and includes a PySide6 desktop GUI (`lumina gui`) and Three.js WebGL 3D backlight viewer (`lumina view`).
 
 ```bash
 # Verify installation and inspect available commands
@@ -268,6 +268,10 @@ lumina flat photo.jpg --shape circle --width 120
 
 # Generate a Spiral Betty PNG pattern
 lumina spiral portrait.jpg --radius 100 --lines 40
+
+# Launch the PySide6 desktop GUI or WebGL 3D viewer
+lumina gui
+lumina view model.stl
 ```
 
 - **Dependencies**: `python@3.12`, `numpy`, `opencv`
@@ -299,10 +303,10 @@ resmi-gazete-cli --help
 resmi-gazete-mcp --help
 
 # Fetch today's official gazette issue
-resmi-gazete-cli today
+resmi-gazete-cli daily
 
 # Search decisions and announcements by keyword
-resmi-gazete-cli search --query "anapara"
+resmi-gazete-cli search -k "anapara"
 
 # Run the FastMCP server for LLM integration
 resmi-gazete-mcp
@@ -315,7 +319,7 @@ resmi-gazete-mcp
 
 ### robo-market-search
 
-Robo Market Search queries Turkish electronic component retailers (Robotistan, SAMM Market, Direnc.net) and computes optimized shopping carts.
+Robo Market Search queries 6 Turkish electronic component retailers, computes optimized shopping carts, and exposes `robo-mcp`, `robo-bot`, `robo-api`, and a BYOK AI agent.
 
 ```bash
 # Inspect available options
@@ -335,7 +339,7 @@ robo-search "raspberry pi 5"
 
 ### rtfs
 
-`rtfs` searches, fetches, parses, and exports movie and TV screenplays from Script Slug, TV Writing, IMSDb, and SubsLikeScript into a structured AST and exposes a progressive-disclosure FastMCP server.
+`rtfs` searches, fetches, parses, and exports movie and TV screenplays (including `view`, `breakdown`, `--ocr`, and Turkish profile support) into a structured AST and exposes a progressive-disclosure FastMCP server.
 
 ```bash
 # Verify installation and inspect available commands
@@ -392,10 +396,9 @@ otter-cli --help
 
 # Send keystroke sequence via USB Serial
 otter-cli type "Hello world" --port /dev/tty.usbmodem1101
-
-# Launch the web controller and REST/MCP server
-rubberotter serve --host 127.0.0.1 --port 8080
 ```
+
+> Note: The web controller PWA moved to [RubberDeck](https://github.com/AtaCanYmc/RubberDeck).
 
 - **Dependencies**: `python@3.12`
 - **Upstream Repository**: [https://github.com/AtaCanYmc/RubberOtter](https://github.com/AtaCanYmc/RubberOtter)
@@ -432,7 +435,7 @@ rxresume mcp --transport sse --port 8000
 
 ### stock-fetcher
 
-Unified copyright-free stock photography search and download CLI for Pexels, Pixabay, Unsplash, and Flickr.
+Unified copyright-free stock photography search and download CLI and MCP server across 6 providers (Pexels, Pixabay, Unsplash, Flickr, Wikimedia Commons, and Openverse).
 
 ```bash
 # Display help and available commands

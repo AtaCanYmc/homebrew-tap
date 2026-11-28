@@ -1,0 +1,7 @@
+tap "AtaCanYmc/tap"
+brew "home-lite-llm"
+brew "reels-wiki"
+brew "rtfs"
+brew "stock-fetcher"
+brew "robo-market-search"
+brew "rxresume"
