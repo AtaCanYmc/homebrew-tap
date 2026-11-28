@@ -489,7 +489,7 @@ make test
 make audit
 ```
 
-Automated CI workflows in `.github/workflows/`:
+Automated CI workflows in `.github/workflows/` (full reference: [docs/AUTOMATION.md](docs/AUTOMATION.md)):
 - `bump-formula.yml`: Handles `repository_dispatch` (`bump-formula`) events to update formula URLs, SHA-256 hashes, and Python resources, then opens a PR.
 - `livecheck.yml`: Runs `brew livecheck` weekly (and via `workflow_dispatch`) to detect upstream releases.
 - `autobump.yml`: Runs `brew bump` and syncs formula versions across `README.md`, `Formula/README.md`, and `docs/index.html`.
