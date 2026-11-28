@@ -161,3 +161,88 @@
     });
   }
 })();
+
+  // 5. Interactive Install & MCP Config Builder
+  const MCP_SERVERS = {
+    'forex-pytory': { command: 'forex-mcp' },
+    'izko-gold-price-api': { command: 'izko-gold-price-mcp' },
+    'izmir-cli': { command: 'izmir-mcp' },
+    'izmir-data': { command: 'izmir-mcp' },
+    'resmi-gazete-cli': { command: 'resmi-gazete-mcp' },
+    'robo-market-search': { command: 'robo-mcp' },
+    'rtfs': { command: 'rtfs', args: ['mcp', '--transport', 'stdio'] },
+    'rubberorca': { command: 'rubberorca-mcp' },
+    'rxresume': { command: 'rxresume-mcp' },
+    'yargitay-karar-scraper': { command: 'yargitay-karar-mcp' }
+  };
+
+  const panel = document.getElementById('builder-panel');
+  const countEl = document.getElementById('builder-count');
+  const brewPre = document.getElementById('builder-brew-cmd');
+  const mcpPre = document.getElementById('builder-mcp-json');
+  const copyMcpBtn = document.getElementById('builder-copy-mcp');
+
+  function updateBuilder() {
+    if (!panel) return;
+    const selected = Array.from(document.querySelectorAll('.formula-select:checked')).map((el) => el.value);
+    panel.hidden = selected.length === 0;
+    if (selected.length === 0) return;
+
+    countEl.textContent = `${selected.length} selected`;
+    brewPre.textContent = `brew install ${selected.map((n) => `AtaCanYmc/tap/${n}`).join(' ')}`;
+
+    const mcpEntries = {};
+    selected.forEach((n) => {
+      if (MCP_SERVERS[n]) mcpEntries[n] = MCP_SERVERS[n];
+    });
+    const hasMcp = Object.keys(mcpEntries).length > 0;
+    mcpPre.hidden = !hasMcp;
+    copyMcpBtn.hidden = !hasMcp;
+    if (hasMcp) {
+      mcpPre.textContent = JSON.stringify({ mcpServers: mcpEntries }, null, 2);
+    }
+  }
+
+  document.querySelectorAll('.formula-card').forEach((card) => {
+    const name = card.getAttribute('data-name');
+    const header = card.querySelector('.card-header');
+    if (!name || !header) return;
+    const label = document.createElement('label');
+    label.className = 'formula-select-label';
+    label.innerHTML = `<input type="checkbox" class="formula-select" value="${name}"> Select`;
+    header.insertBefore(label, header.querySelector('.card-link'));
+  });
+
+  document.addEventListener('change', (e) => {
+    if (e.target.classList && e.target.classList.contains('formula-select')) updateBuilder();
+  });
+
+  const copyBrewBtn = document.getElementById('builder-copy-brew');
+  if (copyBrewBtn) {
+    copyBrewBtn.addEventListener('click', () => {
+      copyTextToClipboard(brewPre.textContent, () => showToast('Copied brew install command'));
+    });
+  }
+  if (copyMcpBtn) {
+    copyMcpBtn.addEventListener('click', () => {
+      copyTextToClipboard(mcpPre.textContent, () => showToast('Copied MCP JSON config'));
+    });
+  }
+  const dlBtn = document.getElementById('builder-dl-brewfile');
+  if (dlBtn) {
+    dlBtn.addEventListener('click', () => {
+      const selected = Array.from(document.querySelectorAll('.formula-select:checked')).map((el) => el.value);
+      const content = ['tap "AtaCanYmc/tap"', ...selected.map((n) => `brew "${n}"`)].join('\n') + '\n';
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([content], { type: 'text/plain' }));
+      a.download = 'Brewfile';
+      a.click();
+    });
+  }
+  const clearBtn = document.getElementById('builder-clear');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      document.querySelectorAll('.formula-select:checked').forEach((el) => { el.checked = false; });
+      updateBuilder();
+    });
+  }

@@ -68,6 +68,7 @@
         <div class="hero-badge-row">
           <span class="status-tag">Homebrew Tap</span>
           <span class="meta-tag">macOS &amp; Linux</span>
+          <a href="architecture.html" class="meta-tag">Architecture &rarr;</a>
         </div>
         <h1 class="hero-title">Custom CLI Formulae for Homebrew</h1>
         <p class="hero-description">
@@ -113,6 +114,20 @@
             <label for="formula-search" class="visually-hidden">Search formulae</label>
             <input type="search" id="formula-search" class="search-input" placeholder="Filter formula (e.g. lumina, 3d, lithophane)..." autocomplete="off">
           </div>
+        </div>
+
+        <div id="builder-panel" class="builder-panel" hidden>
+          <div class="builder-header">
+            <strong id="builder-count">0 selected</strong>
+            <div class="builder-actions">
+              <button type="button" class="copy-btn" id="builder-copy-brew">Copy brew install</button>
+              <button type="button" class="copy-btn" id="builder-dl-brewfile">Download Brewfile</button>
+              <button type="button" class="copy-btn" id="builder-copy-mcp" hidden>Copy MCP JSON</button>
+              <button type="button" class="copy-btn" id="builder-clear">Clear</button>
+            </div>
+          </div>
+          <pre id="builder-brew-cmd" class="builder-pre"></pre>
+          <pre id="builder-mcp-json" class="builder-pre" hidden></pre>
         </div>
 
         <div class="formula-grid" id="formula-list">
